@@ -143,106 +143,106 @@ def menu():
         print(COPYRIGHT)
     elif option == 1:
         problem1 = EXERCISE(EXERCISE_1_NAME)
-        problem1.run(exercise_1_solution)
+        problem1.run(exercise_1_solution, menu)
     elif option == 2:
         problem2 = EXERCISE(EXERCISE_2_NAME)
-        problem2.run(exercise_2_solution)
+        problem2.run(exercise_2_solution, menu)
     elif option == 3:
         problem3 = EXERCISE(EXERCISE_3_NAME)
-        problem3.run(exercise_3_solution)
+        problem3.run(exercise_3_solution, menu)
     elif option == 4:
         problem4 = EXERCISE(EXERCISE_4_NAME)
-        problem4.run(exercise_4_solution)
+        problem4.run(exercise_4_solution, menu)
     elif option == 5:
         problem5 = EXERCISE(EXERCISE_5_NAME)
-        problem5.run(exercise_5_solution)
+        problem5.run(exercise_5_solution, menu)
     elif option == 6:
         problem6 = EXERCISE(EXERCISE_6_NAME)
-        problem6.run(exercise_6_solution)
+        problem6.run(exercise_6_solution, menu)
     elif option == 7:
         problem7 = EXERCISE(EXERCISE_7_NAME)
-        problem7.run(exercise_7_solution)
+        problem7.run(exercise_7_solution, menu)
     elif option == 8:
         problem8 = EXERCISE(EXERCISE_8_NAME)
-        problem8.run(exercise_8_solution)
+        problem8.run(exercise_8_solution, menu)
     elif option == 9:
         problem9 = EXERCISE(EXERCISE_9_NAME)
-        problem9.run(exercise_9_solution)
+        problem9.run(exercise_9_solution, menu)
     elif option == 10:
         problem10 = EXERCISE(EXERCISE_10_NAME)
-        problem10.run(exercise_10_solution)
+        problem10.run(exercise_10_solution, menu)
     elif option == 11:
         problem11 = EXERCISE(EXERCISE_11_NAME)
-        problem11.run(exercise_11_solution)
+        problem11.run(exercise_11_solution, menu)
     elif option == 12:
         problem12 = EXERCISE(EXERCISE_12_NAME)
-        problem12.run(exercise_12_solution)
+        problem12.run(exercise_12_solution, menu)
     elif option == 13:
         problem13 = EXERCISE(EXERCISE_13_NAME)
-        problem13.run(exercise_13_solution)
+        problem13.run(exercise_13_solution, menu)
     elif option == 14:
         problem14 = EXERCISE(EXERCISE_14_NAME)
-        problem14.run(exercise_14_solution)
+        problem14.run(exercise_14_solution, menu)
     elif option == 15:
         problem15 = EXERCISE(EXERCISE_15_NAME)
-        problem.run(exercise_15_solution)
+        problem.run(exercise_15_solution, menu)
     elif option == 16:
         problem16 = EXERCISE(EXERCISE_16_NAME)
-        problem16.run(exercise_16_solution)
+        problem16.run(exercise_16_solution, menu)
     elif option == 17:
         problem17 = EXERCISE(EXERCISE_17_NAME)
-        problem17.run(exercise_17_solution)
+        problem17.run(exercise_17_solution, menu)
     elif option == 18:
         problem18 = EXERCISE(EXERCISE_18_NAME)
-        problem18.run(exercise_18_solution)
+        problem18.run(exercise_18_solution, menu)
     elif option == 19:
         problem19 = EXERCISE(EXERCISE_19_NAME)
-        problem19.run(exercise_19_solution)
+        problem19.run(exercise_19_solution, menu)
     elif option == 20:
         problem20 = EXERCISE(EXERCISE_20_NAME)
-        problem20.run(exercise_20_solution)
+        problem20.run(exercise_20_solution, menu)
     elif option == 21:
         problem21 = EXERCISE(EXERCISE_21_NAME)
-        problem21.run(exercise_21_solution)
+        problem21.run(exercise_21_solution, menu)
     elif option == 22:
         problem22 = EXERCISE(EXERCISE_22_NAME)
-        problem22.run(exercise_22_solution)
+        problem22.run(exercise_22_solution, menu)
     elif option == 23:
         problem23 = EXERCISE(EXERCISE_23_NAME)
-        problem23.run(exercise_23_solution)
+        problem23.run(exercise_23_solution, menu)
     elif option == 24:
         problem24 = EXERCISE(EXERCISE_24_NAME)
-        problem24.run(exercise_24_solution)
+        problem24.run(exercise_24_solution, menu)
     elif option == 25:
         problem25 = EXERCISE(EXERCISE_25_NAME)
-        problem25.run(exercise_25_solution)
+        problem25.run(exercise_25_solution, menu)
     elif option == 26:
         problem26 = EXERCISE(EXERCISE_26_NAME)
-        problem26.run(exercise_26_solution)
+        problem26.run(exercise_26_solution, menu)
     elif option == 27:
         problem27 = EXERCISE(EXERCISE_27_NAME)
-        problem27.run(exercise_27_solution)
+        problem27.run(exercise_27_solution, menu)
     elif option == 28:
         problem28 = EXERCISE(EXERCISE_28_NAME)
-        problem28.run(exercise_28_solution)
+        problem28.run(exercise_28_solution, menu)
     elif option == 29:
         problem29 = EXERCISE(EXERCISE_29_NAME)
-        problem29.run(exercise_29_solution)
+        problem29.run(exercise_29_solution, menu)
     elif option == 30:
         problem30 = EXERCISE(EXERCISE_30_NAME)
-        problem30.run(exercise_30_solution)
+        problem30.run(exercise_30_solution, menu)
     elif option == 31:
         problem31 = EXERCISE(EXERCISE_31_NAME)
-        problem31.run(exercise_31_solution)
+        problem31.run(exercise_31_solution, menu)
     elif option == 32:
         problem32 = EXERCISE(EXERCISE_32_NAME)
-        problem32.run(exercise_32_solution)
+        problem32.run(exercise_32_solution, menu)
     elif option == 33:
         problem33 = EXERCISE(EXERCISE_33_NAME)
-        problem33.run(exercise_33_solution)
+        problem33.run(exercise_33_solution, menu)
     elif option == 34:
         problem34 = EXERCISE(EXERCISE_34_NAME)
-        problem34.run(exercise_34_solution)
+        problem34.run(exercise_34_solution, menu)
 
 
 def exercise_1_solution():
