@@ -1,4 +1,5 @@
 from exercises import EXERCISE
+import __main__
 import math
 """
 Loading the EXERCISE class that is being used 
@@ -24,8 +25,8 @@ exercise_name = {
     50: "Exercise 50: Richter Scale",
     51: "Exercise 51: Roots of a Quadratic Function",
     52: "Exercise 52: Letter Grade to Grade Points",
-    53: "Exercise 53: Grade Points to Letter Grade"
-    # 54: "Exercise 54: Assessing Employees",
+    53: "Exercise 53: Grade Points to Letter Grade",
+    54: "Exercise 54: Assessing Employees"
     # 55: "Exercise 55: Wavelengths of Visible Light",
     # 56: "Exercise 56: Frequency to Name",
     # 57: "Exercise 57: Cell Phone Bill",
@@ -71,21 +72,21 @@ EXERCISE_50_NAME = (STMP_1 + "%s" % exercise_name[50])
 EXERCISE_51_NAME = (STMP_1 + "%s" % exercise_name[51])
 EXERCISE_52_NAME = (STMP_1 + "%s" % exercise_name[52])
 EXERCISE_53_NAME = (STMP_1 + "%s" % exercise_name[53])
-# EXERCISE_54_NAME = (STMP_1 + "%s" % exercise_name[54])
+EXERCISE_54_NAME = (STMP_1 + "%s" % exercise_name[54])
 # EXERCISE_55_NAME = (STMP_1 + "%s" % exercise_name[55])
 # EXERCISE_56_NAME = (STMP_1 + "%s" % exercise_name[56])
 # EXERCISE_57_NAME = (STMP_1 + "%s" % exercise_name[57])
 # EXERCISE_58_NAME = (STMP_1 + "%s" % exercise_name[58])
 # EXERCISE_59_NAME = (STMP_1 + "%s" % exercise_name[59])
 # EXERCISE_60_NAME = (STMP_1 + "%s" % exercise_name[60])
-# EXERCISE_61_NAME = (STMP_1 + "%s" % exercise_name[61] + STMP_2)
-# EXERCISE_62_NAME = (STMP_1 + "%s" % exercise_name[62] + STMP_2)
-# EXERCISE_63_NAME = (STMP_1 + "%s" % exercise_name[63] + STMP_2)
-# EXERCISE_64_NAME = (STMP_1 + "%s" % exercise_name[64] + STMP_2)
-# EXERCISE_65_NAME = (STMP_1 + "%s" % exercise_name[65] + STMP_2)
-# EXERCISE_66_NAME = (STMP_1 + "%s" % exercise_name[66] + STMP_2)
-# EXERCISE_67_NAME = (STMP_1 + "%s" % exercise_name[67] + STMP_2)
-# EXERCISE_68_NAME = (STMP_1 + "%s" % exercise_name[68] + STMP_2)
+# EXERCISE_61_NAME = (STMP_1 + "%s" % exercise_name[61])
+# EXERCISE_62_NAME = (STMP_1 + "%s" % exercise_name[62])
+# EXERCISE_63_NAME = (STMP_1 + "%s" % exercise_name[63])
+# EXERCISE_64_NAME = (STMP_1 + "%s" % exercise_name[64])
+# EXERCISE_65_NAME = (STMP_1 + "%s" % exercise_name[65])
+# EXERCISE_66_NAME = (STMP_1 + "%s" % exercise_name[66])
+# EXERCISE_67_NAME = (STMP_1 + "%s" % exercise_name[67])
+# EXERCISE_68_NAME = (STMP_1 + "%s" % exercise_name[68])
 
 
 def menu():
@@ -111,7 +112,7 @@ def menu():
     print("[51] %s" % exercise_name[51])
     print("[52] %s" % exercise_name[52])
     print("[53] %s" % exercise_name[53])
-    # print("[54] %s" % exercise_name[54])
+    print("[54] %s" % exercise_name[54])
     # print("[55] %s" % exercise_name[55])
     # print("[56] %s" % exercise_name[56])
     # print("[57] %s" % exercise_name[57])
@@ -130,63 +131,68 @@ def menu():
     option = int(input("Enter the number of a chapter: "))
     if option == 111:
         print(COPYRIGHT)
+    elif option == 0:
+        __main__.menu()
     elif option == 35:
         problem35 = EXERCISE(EXERCISE_35_NAME)
-        problem35.run(exercise_35_solution)
+        problem35.run(exercise_35_solution, menu)
     elif option == 36:
         problem35 = EXERCISE(EXERCISE_35_NAME)
-        problem35.run(exercise_35_solution)
+        problem35.run(exercise_35_solution, menu)
     elif option == 37:
         problem37 = EXERCISE(EXERCISE_37_NAME)
-        problem37.run(exercise_37_solution)
+        problem37.run(exercise_37_solution, menu)
     elif option == 38:
         problem38 = EXERCISE(EXERCISE_38_NAME)
-        problem38.run(exercise_38_solution)
+        problem38.run(exercise_38_solution, menu)
     elif option == 39:
         problem39 = EXERCISE(EXERCISE_39_NAME)
-        problem39.run(exercise_39_solution)
+        problem39.run(exercise_39_solution, menu)
     elif option == 40:
         problem40 = EXERCISE(EXERCISE_40_NAME)
-        problem40.run(exercise_40_solution)
+        problem40.run(exercise_40_solution, menu)
     elif option == 41:
         problem41 = EXERCISE(EXERCISE_41_NAME)
-        problem41.run(exercise_41_solution)
+        problem41.run(exercise_41_solution, menu)
     elif option == 42:
         problem42 = EXERCISE(EXERCISE_42_NAME)
-        problem42.run(exercise_42_solution)
+        problem42.run(exercise_42_solution, menu)
     elif option == 43:
         problem43 = EXERCISE(EXERCISE_43_NAME)
-        problem43.run(exercise_43_solution)
+        problem43.run(exercise_43_solution, menu)
     elif option == 44:
         problem44 = EXERCISE(EXERCISE_44_NAME)
-        problem44.run(exercise_44_solution)
+        problem44.run(exercise_44_solution, menu)
     elif option == 45:
         problem45 = EXERCISE(EXERCISE_45_NAME)
-        problem45.run(exercise_45_solution)
+        problem45.run(exercise_45_solution, menu)
     elif option == 46:
         problem46 = EXERCISE(EXERCISE_46_NAME)
-        problem46.run(exercise_46_solution)
+        problem46.run(exercise_46_solution, menu)
     elif option == 47:
         problem47 = EXERCISE(EXERCISE_47_NAME)
-        problem47.run(exercise_47_solution)
+        problem47.run(exercise_47_solution, menu)
     elif option == 48:
         problem48 = EXERCISE(EXERCISE_48_NAME)
-        problem48.run(exercise_48_solution)
+        problem48.run(exercise_48_solution, menu)
     elif option == 49:
         problem49 = EXERCISE(EXERCISE_49_NAME)
-        problem49.run(exercise_49_solution)
+        problem49.run(exercise_49_solution, menu)
     elif option == 50:
         problem50 = EXERCISE(EXERCISE_50_NAME)
-        problem50.run(exercise_50_solution)
+        problem50.run(exercise_50_solution, menu)
     elif option == 51:
         problem51 = EXERCISE(EXERCISE_51_NAME)
-        problem51.run(exercise_51_solution)
+        problem51.run(exercise_51_solution, menu)
     elif option == 52:
         problem52 = EXERCISE(EXERCISE_52_NAME)
-        problem52.run(exercise_52_solution)
+        problem52.run(exercise_52_solution, menu)
     elif option == 53:
         problem53 = EXERCISE(EXERCISE_53_NAME)
-        problem53.run(exercise_53_solution)
+        problem53.run(exercise_53_solution, menu)
+    elif option == 54:
+        problem54 = EXERCISE(EXERCISE_54_NAME)
+        problem54.run(exercise_54_solution, menu)
 
 
 def exercise_35_solution():
@@ -507,7 +513,7 @@ def exercise_53_solution():
     ag = 0
     flag = False
     while grade < 0 or grade > 5.0:
-        grade = float(input("Enter a numerical grade from 0 to 5.0:"))
+        grade = float(input("Enter a numerical grade from 0 to 5.0: "))
         if 0 <= grade <= 4.0:
             break
     for i in range(len(grade_coefficients)):
@@ -528,10 +534,20 @@ def exercise_53_solution():
         return print("Your numerical grade is: %.1f\nYour letter grade is: %s" % (grade, ag))
 
 
-# def exercise_54_solution():
-#     return true
-#
-#
+def exercise_54_solution():
+    grades = ['Unacceptable Performance', 'Acceptable Performance', 'Meritorius Performance']
+    rating = float(input("Enter your rating as an employee of the company: "))
+    while  rating < 0 or 0 < rating < 0.4 or (0.4 < rating < 0.6):
+        rating = float(input("Please, enter the correct rating value (0, o.4, or 0.6 or more): "))
+    premium = 2400 * rating
+    if rating == 0.0:
+        return print("Your rating of <%.2f> means <%s> and rewarded by the <$%.2f> premium." % (rating, grades[0], premium))
+    elif rating == 0.4:
+        return print("Your rating of <%.2f> means <%s> and rewarded by the <$%.2f> premium." % (rating, grades[1], premium))
+    else:
+        return print("Your rating of <%.2f> means <%s> and rewarded by the <$%.2f> premium." % (rating, grades[2], premium))
+
+
 # def exercise_55_solution():
 #     return true
 #

@@ -4,10 +4,15 @@ def launch():
                  "[ SOLUTION ]")
 
 
-def finish():
+def finish(menu):
     """Output of a text block with borders at the END of the program execution"""
-    return print("[ THE PROGRAM IS COMPLETED ]\n"
+    print("[ THE PROGRAM IS COMPLETED ]\n"
                  "---------------------------------------------------------------------------")
+    menu_return = str(input("Do you want to return to the menu? (y/n): "))
+    if menu_return.lower() == "y":
+        return menu()
+    else:
+        exit()
 
 
 class EXERCISE:
@@ -15,9 +20,9 @@ class EXERCISE:
     def __init__(self, title):
         self.title = title
 
-    def run(self, solution):
+    def run(self, solution, menu):
         print(self.title)
         launch()
         solution()
-        finish()
+        finish(menu)
         return 1
