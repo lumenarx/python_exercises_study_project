@@ -6,12 +6,15 @@ def launch():
 
 def finish(menu):
     """Output of a text block with borders at the END of the program execution"""
-    print("[ THE PROGRAM IS COMPLETED ]\n"
-                 "---------------------------------------------------------------------------")
-    menu_return = str(input("Do you want to return to the menu? (y/n): "))
-    if menu_return.lower() == "y":
-        return menu()
-    else:
+    try:
+        print("[ THE PROGRAM IS COMPLETED ]\n"
+              "---------------------------------------------------------------------------")
+        menu_return = str(input("Do you want to return to the menu? (y/n): "))
+        if menu_return.lower() == "y":
+            return menu()
+        else:
+            exit()
+    except KeyboardInterrupt:
         exit()
 
 
