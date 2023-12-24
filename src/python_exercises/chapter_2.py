@@ -26,10 +26,10 @@ exercise_name = {
     51: "Exercise 51: Roots of a Quadratic Function",
     52: "Exercise 52: Letter Grade to Grade Points",
     53: "Exercise 53: Grade Points to Letter Grade",
-    54: "Exercise 54: Assessing Employees"
-    # 55: "Exercise 55: Wavelengths of Visible Light",
-    # 56: "Exercise 56: Frequency to Name",
-    # 57: "Exercise 57: Cell Phone Bill",
+    54: "Exercise 54: Assessing Employees",
+    55: "Exercise 55: Wavelengths of Visible Light",
+    56: "Exercise 56: Frequency to Name",
+    57: "Exercise 57: Cell Phone Bill",
     # 58: "Exercise 58: Is It a Leap Year?"
 }
 
@@ -73,9 +73,9 @@ EXERCISE_51_NAME = (STMP_1 + "%s" % exercise_name[51])
 EXERCISE_52_NAME = (STMP_1 + "%s" % exercise_name[52])
 EXERCISE_53_NAME = (STMP_1 + "%s" % exercise_name[53])
 EXERCISE_54_NAME = (STMP_1 + "%s" % exercise_name[54])
-# EXERCISE_55_NAME = (STMP_1 + "%s" % exercise_name[55])
-# EXERCISE_56_NAME = (STMP_1 + "%s" % exercise_name[56])
-# EXERCISE_57_NAME = (STMP_1 + "%s" % exercise_name[57])
+EXERCISE_55_NAME = (STMP_1 + "%s" % exercise_name[55])
+EXERCISE_56_NAME = (STMP_1 + "%s" % exercise_name[56])
+EXERCISE_57_NAME = (STMP_1 + "%s" % exercise_name[57])
 # EXERCISE_58_NAME = (STMP_1 + "%s" % exercise_name[58])
 # EXERCISE_59_NAME = (STMP_1 + "%s" % exercise_name[59])
 # EXERCISE_60_NAME = (STMP_1 + "%s" % exercise_name[60])
@@ -113,9 +113,9 @@ def menu():
     print("[52] %s" % exercise_name[52])
     print("[53] %s" % exercise_name[53])
     print("[54] %s" % exercise_name[54])
-    # print("[55] %s" % exercise_name[55])
-    # print("[56] %s" % exercise_name[56])
-    # print("[57] %s" % exercise_name[57])
+    print("[55] %s" % exercise_name[55])
+    print("[56] %s" % exercise_name[56])
+    print("[57] %s" % exercise_name[57])
     # print("[58] %s" % exercise_name[58])
     # print("[59] %s" % exercise_name[59])
     # print("[60] %s" % exercise_name[60])
@@ -193,6 +193,17 @@ def menu():
     elif option == 54:
         problem54 = EXERCISE(EXERCISE_54_NAME)
         problem54.run(exercise_54_solution, menu)
+    elif option == 55:
+        problem55 = EXERCISE(EXERCISE_55_NAME)
+        problem55.run(exercise_55_solution, menu)
+    elif option == 56:
+        problem56 = EXERCISE(EXERCISE_56_NAME)
+        problem56.run(exercise_56_solution, menu)
+    elif option == 57:
+        problem57 = EXERCISE(EXERCISE_57_NAME)
+        problem57.run(exercise_57_solution, menu)
+    else:
+        exit()
 
 
 def exercise_35_solution():
@@ -548,18 +559,79 @@ def exercise_54_solution():
         return print("Your rating of <%.2f> means <%s> and rewarded by the <$%.2f> premium." % (rating, grades[2], premium))
 
 
-# def exercise_55_solution():
-#     return true
-#
-#
-# def exercise_56_solution():
-#     return true
-#
-#
-# def exercise_57_solution():
-#     return true
-#
-#
+def exercise_55_solution():
+    color = ['Violet', 'Blue', 'Green', 'Yellow', 'Orange', 'Red']
+    wavelength = float(input("Enter the value of the wavelength: "))
+    while wavelength < 380 or wavelength > 750:
+        wavelength = float(input("Your wavelength is outside of visible spectrum.\n"
+                                 "Please, enter the correct value of the wavelength in range from 380 to 750 nm: "))
+    if 380 <= wavelength < 450:
+        return print("The color of <%.2f> nm is <%s>." % (wavelength, color[0]))
+    elif 450 <= wavelength < 495:
+        return print("The color of <%.2f> nm is <%s>." % (wavelength, color[1]))
+    elif 495 <= wavelength < 570:
+        return print("The color of <%.2f> nm is <%s>." % (wavelength, color[2]))
+    elif 570 <= wavelength < 590:
+        return print("The color of <%.2f> nm is <%s>." % (wavelength, color[3]))
+    elif 590 <= wavelength < 620:
+        return print("The color of <%.2f> nm is <%s>." % (wavelength, color[4]))
+    else:
+        return print("The color of <%.2f> nm is <%s>." % (wavelength, color[5]))
+
+
+def exercise_56_solution():
+    range_1 = 3 * 10 ** 9
+    range_2 = 3 * 10 ** 12
+    range_3 = 4.3 * 10 ** 14
+    range_4 = 7.5 * 10 ** 14
+    range_5 = 3 * 10 ** 17
+    range_6 = 3 * 10 ** 19
+    radiation = ['Radio Waves', 'Microwaves', 'Infrared Light', 'Visible Light', 'Ultraviolet Light', 'X-Rays', 'Gamma Rays']
+    frequency = float(input("Enter the radiation frequency: "))
+    while frequency == "":
+        frequency = float(input("Please, enter the correct value of the radiation frequency: "))
+    if frequency < range_1:
+        return print("The name of <%.2f> frequency is <%s>." % (frequency, radiation[0]))
+    elif range_1 <= frequency < range_2:
+        return print("The name of <%.2f> frequency is <%s>." % (frequency, radiation[1]))
+    elif range_2 <= frequency < range_3:
+        return print("The name of <%.2f> frequency is <%s>." % (frequency, radiation[2]))
+    elif range_3 <= frequency < range_4:
+        return print("The name of <%.2f> frequency is <%s>." % (frequency, radiation[3]))
+    elif range_4 <= frequency < range_5:
+        return print("The name of <%.2f> frequency is <%s>." % (frequency, radiation[4]))
+    elif range_5 <= frequency < range_6:
+        return print("The name of <%.2f> frequency is <%s>." % (frequency, radiation[5]))
+    elif frequency > range_6:
+        return print("The name of <%.2f> frequency is <%s>." % (frequency, radiation[6]))
+
+
+def exercise_57_solution():
+    minute_cost = 0.25
+    minutes_bill = 0
+    message_cost = 0.15
+    messages_bill = 0
+    fee_911 = 0.44
+    sales_tax = 0.05
+    plan_cost = 15
+    bill = f"Base charge: ${plan_cost}\n"
+    minutes = float(input("Enter the number of minutes talked in this month: "))
+    messages = float(input("Enter the number of messages sent in this month: "))
+    if minutes > 50:
+        minutes_bill = (minutes - 50) * minute_cost
+        additional_minutes = f"Additional minutes: $%.2f\n" % minutes_bill
+        bill += additional_minutes
+    if messages > 50:
+        messages_bill = (messages - 50) * message_cost
+        additional_messages = "Additional messages: $%.2f\n" % messages_bill
+        bill += additional_messages
+    tax = (plan_cost + minutes_bill + messages_bill + fee_911) * sales_tax
+    round(tax, 2)
+    total_bill = plan_cost + minutes_bill + messages_bill + fee_911 + tax
+    bill += f"The 911 fee: ${fee_911}\nTax: $%.2f\nTotal bill: $%.2f" % (tax, total_bill)
+    return print(bill)
+
+
 # def exercise_58_solution():
 #     return true
 #
