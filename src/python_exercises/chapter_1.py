@@ -185,7 +185,7 @@ def menu():
         problem14.run(exercise_14_solution, menu)
     elif option == 15:
         problem15 = EXERCISE(EXERCISE_15_NAME)
-        problem.run(exercise_15_solution, menu)
+        problem15.run(exercise_15_solution, menu)
     elif option == 16:
         problem16 = EXERCISE(EXERCISE_16_NAME)
         problem16.run(exercise_16_solution, menu)
@@ -378,7 +378,6 @@ def exercise_13_solution():
         if counter[i] > 0:
             text = str(counter[i]) + " coins denominated " + str(coins[i])
             print(text)
-    return true
 
 
 def exercise_14_solution():
@@ -496,7 +495,7 @@ def exercise_25_solution():
             secs -= 60
         else:
             break
-    return print("The time interval is %d:%02d:%02d:%02d" % (days, hours, mins, secs))
+    return print("The time interval is %d:%02d:%02d:%02d" % (days, hours, minutes, secs))
 
 
 def exercise_26_solution():

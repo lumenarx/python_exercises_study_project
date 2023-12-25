@@ -30,7 +30,11 @@ exercise_name = {
     55: "Exercise 55: Wavelengths of Visible Light",
     56: "Exercise 56: Frequency to Name",
     57: "Exercise 57: Cell Phone Bill",
-    # 58: "Exercise 58: Is It a Leap Year?"
+    58: "Exercise 58: Is It a Leap Year?",
+    59: "Exercise 59: Next day",
+    60: "Exercise 60: What Day of the Week Is January 1?",
+    61: "Exercise 61: Is a License Plate Valid?",
+    62: "Exercise 62: Roulette Payouts"
 }
 
 # Starting string template for visual border printing
@@ -76,17 +80,11 @@ EXERCISE_54_NAME = (STMP_1 + "%s" % exercise_name[54])
 EXERCISE_55_NAME = (STMP_1 + "%s" % exercise_name[55])
 EXERCISE_56_NAME = (STMP_1 + "%s" % exercise_name[56])
 EXERCISE_57_NAME = (STMP_1 + "%s" % exercise_name[57])
-# EXERCISE_58_NAME = (STMP_1 + "%s" % exercise_name[58])
-# EXERCISE_59_NAME = (STMP_1 + "%s" % exercise_name[59])
-# EXERCISE_60_NAME = (STMP_1 + "%s" % exercise_name[60])
-# EXERCISE_61_NAME = (STMP_1 + "%s" % exercise_name[61])
-# EXERCISE_62_NAME = (STMP_1 + "%s" % exercise_name[62])
-# EXERCISE_63_NAME = (STMP_1 + "%s" % exercise_name[63])
-# EXERCISE_64_NAME = (STMP_1 + "%s" % exercise_name[64])
-# EXERCISE_65_NAME = (STMP_1 + "%s" % exercise_name[65])
-# EXERCISE_66_NAME = (STMP_1 + "%s" % exercise_name[66])
-# EXERCISE_67_NAME = (STMP_1 + "%s" % exercise_name[67])
-# EXERCISE_68_NAME = (STMP_1 + "%s" % exercise_name[68])
+EXERCISE_58_NAME = (STMP_1 + "%s" % exercise_name[58])
+EXERCISE_59_NAME = (STMP_1 + "%s" % exercise_name[59])
+EXERCISE_60_NAME = (STMP_1 + "%s" % exercise_name[60])
+EXERCISE_61_NAME = (STMP_1 + "%s" % exercise_name[61])
+EXERCISE_62_NAME = (STMP_1 + "%s" % exercise_name[62])
 
 
 def menu():
@@ -116,17 +114,11 @@ def menu():
     print("[55] %s" % exercise_name[55])
     print("[56] %s" % exercise_name[56])
     print("[57] %s" % exercise_name[57])
-    # print("[58] %s" % exercise_name[58])
-    # print("[59] %s" % exercise_name[59])
-    # print("[60] %s" % exercise_name[60])
-    # print("[61] %s" % exercise_name[61])
-    # print("[62] %s" % exercise_name[62])
-    # print("[63] %s" % exercise_name[63])
-    # print("[64] %s" % exercise_name[64])
-    # print("[65] %s" % exercise_name[65])
-    # print("[66] %s" % exercise_name[66])
-    # print("[67] %s" % exercise_name[67])
-    # print("[68] %s" % exercise_name[68])
+    print("[58] %s" % exercise_name[58])
+    print("[59] %s" % exercise_name[59])
+    print("[60] %s" % exercise_name[60])
+    print("[61] %s" % exercise_name[61])
+    print("[62] %s" % exercise_name[62])
     print("[0] Exit to the main menu")
     option = int(input("Enter the number of a chapter: "))
     if option == 111:
@@ -202,6 +194,9 @@ def menu():
     elif option == 57:
         problem57 = EXERCISE(EXERCISE_57_NAME)
         problem57.run(exercise_57_solution, menu)
+    elif option == 58:
+        problem58 = EXERCISE(EXERCISE_58_NAME)
+        problem58.run(exercise_58_solution, menu)
     else:
         exit()
 
@@ -368,7 +363,7 @@ def exercise_45_solution():
         else:
             month = str(input("You entered the wrong month. Enter the correct month name: "))
     flag = False
-    if check(day, month, months) == 1:
+    if check(day, month, months, days) == 1:
         result = str(day) + " " + month
         for i in range(3):
             if result == dates[i]:
@@ -546,9 +541,9 @@ def exercise_53_solution():
 
 
 def exercise_54_solution():
-    grades = ['Unacceptable Performance', 'Acceptable Performance', 'Meritorius Performance']
+    grades = ['Unacceptable Performance', 'Acceptable Performance', 'Meritorious Performance']
     rating = float(input("Enter your rating as an employee of the company: "))
-    while  rating < 0 or 0 < rating < 0.4 or (0.4 < rating < 0.6):
+    while rating < 0 or 0 < rating < 0.4 or (0.4 < rating < 0.6):
         rating = float(input("Please, enter the correct rating value (0, o.4, or 0.6 or more): "))
     premium = 2400 * rating
     if rating == 0.0:
@@ -632,9 +627,18 @@ def exercise_57_solution():
     return print(bill)
 
 
-# def exercise_58_solution():
-#     return true
-#
-#
+def exercise_58_solution():
+    year = int(input('Enter a year: '))
+    if year % 400 == 0:
+        return print("A year <%d> is a leap year." % year)
+    else:
+        if year % 100 == 0:
+            return print("A year <%d> is NOT a leap year." % year)
+        else:
+            if year % 4 == 0:
+                return print("A year <%d> is a leap year." % year)
+            else:
+                return print("A year <%d> is NOT a leap year." % year)
+
 # def exercise_59_solution():
 #     return true
