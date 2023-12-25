@@ -197,6 +197,9 @@ def menu():
     elif option == 58:
         problem58 = EXERCISE(EXERCISE_58_NAME)
         problem58.run(exercise_58_solution, menu)
+    elif option == 59:
+        problem59 = EXERCISE(EXERCISE_59_NAME)
+        problem59.run(exercise_59_solution, menu)
     else:
         exit()
 
@@ -640,5 +643,36 @@ def exercise_58_solution():
             else:
                 return print("A year <%d> is NOT a leap year." % year)
 
-# def exercise_59_solution():
-#     return true
+def exercise_59_solution():
+    year = int(input("Enter the year in your date: "))
+    month = int(input("Enter the month in your date: "))
+    day = int(input("Enter the day in your date: "))
+    days_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    if year % 400 == 0:
+        days_in_month[1] += 1
+    else:
+        if year % 100 == 0:
+            print("A year <%d> is NOT a leap year." % year)
+        else:
+            if year % 4 == 0:
+                days_in_month[1] += 1
+            else:
+                print("A year <%d> is NOT a leap year." % year)
+    n = month - 1
+    if day == days_in_month[n]:
+        month += 1
+        day = 1
+        if month > 12:
+            year += 1
+            month = 1
+    else:
+        day += 1
+    if day % 10 >= 0:
+        day_str = '0' + str(day)
+    else:
+        day_str = str(day)
+    if month % 10 >= 0:
+        month_str = '0' + str(month)
+    else:
+        month_str = str(month)
+    return print("The next date is %d:%s:%s" % (year, month_str, day_str))
