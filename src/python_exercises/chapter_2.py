@@ -1,6 +1,7 @@
 from exercises import EXERCISE
 import __main__
 import math
+import random
 """
 Loading the EXERCISE class that is being used 
 to combine an exercise name and a solution into one
@@ -200,6 +201,15 @@ def menu():
     elif option == 59:
         problem59 = EXERCISE(EXERCISE_59_NAME)
         problem59.run(exercise_59_solution, menu)
+    elif option == 60:
+        problem60 = EXERCISE(EXERCISE_60_NAME)
+        problem60.run(exercise_60_solution, menu)
+    elif option == 61:
+        problem61 = EXERCISE(EXERCISE_61_NAME)
+        problem61.run(exercise_61_solution, menu)
+    elif option == 62:
+        problem62 = EXERCISE(EXERCISE_62_NAME)
+        problem62.run(exercise_62_solution, menu)
     else:
         exit()
 
@@ -284,11 +294,14 @@ def exercise_40_solution():
     elif db < quiet_room:
         return print("The volume level is less than the level <%s>" % names[0])
     elif quiet_room < db < alarm:
-        return print("The volume level is higher than the level <%s> and lower than the level <%s>" % (names[0], names[1]))
+        return print("The volume level is higher than the level <%s> and lower than the level <%s>"
+                     % (names[0], names[1]))
     elif alarm < db < lawn_mover:
-        return print("The volume level is higher than the level <%s> and lower than the level <%s>" % (names[1], names[2]))
+        return print("The volume level is higher than the level <%s> and lower than the level <%s>"
+                     % (names[1], names[2]))
     elif lawn_mover < db < jackhammer:
-        return print("The volume level is higher than the level <%s> and lower than the level <%s>" % (names[2], names[3]))
+        return print("The volume level is higher than the level <%s> and lower than the level <%s>"
+                     % (names[2], names[3]))
     elif db > jackhammer:
         return print("The volume level is higher than the level <%s>" % names[3])
 
@@ -297,7 +310,8 @@ def exercise_41_solution():
     edge1 = float(input("Enter the length of the first side of the triangle: "))
     edge2 = float(input("Enter the length of the second side of the triangle: "))
     edge3 = float(input("Enter the length of the third side of the triangle: "))
-    if (edge1 == edge2 and edge1 != edge3) or (edge1 == edge3 and edge1 != edge2) or (edge2 == edge3 and edge2 != edge1):
+    if (edge1 == edge2 and edge1 != edge3) or (edge1 == edge3
+                                               and edge1 != edge2) or (edge2 == edge3 and edge2 != edge1):
         return print("This is an isosceles triangle")
     elif edge1 == edge2 and edge1 == edge3 and edge2 == edge3:
         return print("This is an equilateral triangle triangle")
@@ -332,7 +346,8 @@ def exercise_43_solution():
 
 def exercise_44_solution():
     denomination = [1, 2, 5, 10, 20, 50, 100]
-    leaders = ['George Washington', 'Thomas Jefferson', 'Abraham Lincoln', 'Alexander Hamilton', 'Andrew Jackson', 'Ulysses Grant', 'Benjamin Franklin']
+    leaders = ['George Washington', 'Thomas Jefferson', 'Abraham Lincoln',
+               'Alexander Hamilton', 'Andrew Jackson', 'Ulysses Grant', 'Benjamin Franklin']
     result = ""
     face_value = int(input("Enter the denomination of the banknote in $: "))
     while check_denomination(face_value, denomination) == 0:
@@ -361,7 +376,8 @@ def exercise_45_solution():
     while check(day, month, months, dates) >= 20 or check(day, month, months, dates) == 0:
         if check(day, month, months, dates) >= 20:
             n = check(day, month, months, dates) % 20
-            day = int(input("You entered the wrong number, %s has exactly %d days in the month. Enter the correct date of the month: " % (months[n], days[n])))
+            day = int(input("You entered the wrong number, %s has exactly %d days in the month. "
+                            "Enter the correct date of the month: " % (months[n], days[n])))
             check(day, month, months, dates)
         else:
             month = str(input("You entered the wrong month. Enter the correct month name: "))
@@ -416,13 +432,17 @@ def exercise_47_solution():
     result = str(day) + " " + month
     months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august',
               'september', 'october', 'november', 'december']
-    if (day > 20 and month == months[11]) or month == months[0] or month == months[1] or (day < 20 and month == months[2]):
+    if ((day > 20 and month == months[11]) or month == months[0]
+            or month == months[1] or (day < 20 and month == months[2])):
         return print("Date: %s\nSeason: Winter" % result)
-    elif (day > 19 and month == months[2]) or month == months[3] or month == months[4] or (day < 21 and month == months[5]):
+    elif ((day > 19 and month == months[2]) or month == months[3]
+          or month == months[4] or (day < 21 and month == months[5])):
         return print("Date: %s\nSeason: Spring" % result)
-    elif (day > 20 and month == months[5]) or month == months[6] or month == months[7] or (day < 22 and month == months[8]):
+    elif ((day > 20 and month == months[5]) or month == months[6]
+          or month == months[7] or (day < 22 and month == months[8])):
         return print("Date: %s\nSeason: Summer" % result)
-    elif (day > 21 and month == months[8]) or month == months[9] or month == months[10] or (day < 21 and month == months[11]):
+    elif ((day > 21 and month == months[8]) or month == months[9]
+          or month == months[10] or (day < 21 and month == months[11])):
         return print("Date: %s\nSeason: Autumn" % result)
 
 
@@ -550,11 +570,14 @@ def exercise_54_solution():
         rating = float(input("Please, enter the correct rating value (0, o.4, or 0.6 or more): "))
     premium = 2400 * rating
     if rating == 0.0:
-        return print("Your rating of <%.2f> means <%s> and rewarded by the <$%.2f> premium." % (rating, grades[0], premium))
+        return print("Your rating of <%.2f> means <%s> and rewarded by the <$%.2f> premium."
+                     % (rating, grades[0], premium))
     elif rating == 0.4:
-        return print("Your rating of <%.2f> means <%s> and rewarded by the <$%.2f> premium." % (rating, grades[1], premium))
+        return print("Your rating of <%.2f> means <%s> and rewarded by the <$%.2f> premium."
+                     % (rating, grades[1], premium))
     else:
-        return print("Your rating of <%.2f> means <%s> and rewarded by the <$%.2f> premium." % (rating, grades[2], premium))
+        return print("Your rating of <%.2f> means <%s> and rewarded by the <$%.2f> premium."
+                     % (rating, grades[2], premium))
 
 
 def exercise_55_solution():
@@ -584,7 +607,8 @@ def exercise_56_solution():
     range_4 = 7.5 * 10 ** 14
     range_5 = 3 * 10 ** 17
     range_6 = 3 * 10 ** 19
-    radiation = ['Radio Waves', 'Microwaves', 'Infrared Light', 'Visible Light', 'Ultraviolet Light', 'X-Rays', 'Gamma Rays']
+    radiation = ['Radio Waves', 'Microwaves', 'Infrared Light', 'Visible Light',
+                 'Ultraviolet Light', 'X-Rays', 'Gamma Rays']
     frequency = float(input("Enter the radiation frequency: "))
     while frequency == "":
         frequency = float(input("Please, enter the correct value of the radiation frequency: "))
@@ -643,11 +667,18 @@ def exercise_58_solution():
             else:
                 return print("A year <%d> is NOT a leap year." % year)
 
+
 def exercise_59_solution():
-    year = int(input("Enter the year in your date: "))
-    month = int(input("Enter the month in your date: "))
-    day = int(input("Enter the day in your date: "))
     days_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    year = int(input("Enter the year in your date: "))
+    while year < 0:
+        year = int(input("Please, enter the correct year in your date: "))
+    month = int(input("Enter the month in your date: "))
+    while month < 0 or month > 12:
+        month = int(input("Please, enter the correct month in your date: "))
+    day = int(input("Enter the day in your date: "))
+    while day < 0 or day > days_in_month[month-1]:
+        day = int(input("Please, enter the correct day in your date: "))
     if year % 400 == 0:
         days_in_month[1] += 1
     else:
@@ -676,3 +707,124 @@ def exercise_59_solution():
     else:
         month_str = str(month)
     return print("The next date is %d:%s:%s" % (year, month_str, day_str))
+
+
+def exercise_60_solution():
+    year = int(input("Enter the number of year: "))
+    while year < 0:
+        year = int(input("Please, enter the correct year in your date: "))
+    week_days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+    day_of_the_week = (year + math.floor((year - 1)/4) - math.floor((year-1)/100) + math.floor((year - 1) / 400)) % 7
+    if day_of_the_week == 1:
+        return print("The 1st of January is <%s> in <%d>" % (week_days[0], year))
+    elif day_of_the_week == 2:
+        return print("The 1st of January is <%s> in <%d>" % (week_days[1], year))
+    elif day_of_the_week == 3:
+        return print("The 1st of January is <%s> in <%d>" % (week_days[2], year))
+    elif day_of_the_week == 4:
+        return print("The 1st of January is <%s> in <%d>" % (week_days[3], year))
+    elif day_of_the_week == 5:
+        return print("The 1st of January is <%s> in <%d>" % (week_days[4], year))
+    elif day_of_the_week == 6:
+        return print("The 1st of January is <%s> in <%d>" % (week_days[5], year))
+    else:
+        return print("The 1st of January is <%s> in <%d>" % (week_days[6], year))
+
+
+def exercise_61_solution():
+    valid = False
+    plate_style_old = False
+    plate_style_new = False
+    license_plate = str(input("Enter the license plate characters: "))
+    while valid is False:
+        if len(license_plate) == 6:
+            if not (license_plate[0].isupper()) \
+                    or not license_plate[1].isupper() \
+                    or not license_plate[2].isupper() \
+                    or not license_plate[3].isdigit() \
+                    or not license_plate[4].isdigit() \
+                    or not license_plate[5].isdigit():
+                license_plate = str(input("Please, enter the correct license plate characters(ZZZ000 or 0000ZZZ): "))
+            else:
+                valid = True
+                plate_style_old = True
+        elif len(license_plate) == 7:
+            if not (license_plate[0].isdigit()) \
+                    or not license_plate[1].isdigit() \
+                    or not license_plate[2].isdigit() \
+                    or not license_plate[3].isdigit() \
+                    or not license_plate[4].isupper() \
+                    or not license_plate[5].isupper() \
+                    or not license_plate[6].isupper():
+                license_plate = str(input("Please, enter the correct license plate characters(ZZZ000 or 0000ZZZ): "))
+            else:
+                valid = True
+                plate_style_new = True
+        else:
+            license_plate = str(input("Please, enter the license plate characters(ZZZ000 or 0000ZZZ): "))
+    if plate_style_old is True:
+        return print("The characters are valid for an OLDER style license plate.")
+    elif plate_style_new is True:
+        return print("The characters are valid for a NEWER style license plate.")
+
+
+def exercise_62_solution():
+    number = -1
+    color = -1
+    parity = -1
+    half = -1
+    red = [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36]
+    black = [2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35]
+    print("[INFO] You can make four different bets in a row:\n"
+          "[BET] Single number (1 to 36, or 0, or 00)\n"
+          "[BET] Red versus black\n"
+          "[BET] Odd versus Even (0 and 00 don't pay out)\n"
+          "[BET] 1 to 18 versus 19 to 36\n")
+    for bet in range(1, 5):
+        if bet == 1:
+            number = int(input("[BET] Enter the number you want to place a bet on (1 to 36, or 0, or 00): "))
+            while number < 0 or number > 36:
+                number = int(input("[BET] Please, enter the correct number you want "
+                                   "to place a bet on (1 to 36, or 0, or 00): "))
+        elif bet == 2:
+            color = int(input("[0] No bet\n"
+                              "[1] RED\n"
+                              "[2] BLACK\n"
+                              "[BET] Enter the number of color you want to place a bet on: "))
+            while color != 1 and color != 2 and color != 0:
+                color = int(input("[BET] Please, enter the correct number of color you want to place a bet on: "))
+        elif bet == 3:
+            parity = int(input("[0] No bet\n"
+                               "[1] Odd\n"
+                               "[2] Even\n"
+                               "[BET] Enter the number where you want to place a bet: "))
+            while parity != 1 and parity != 2 and parity != 0:
+                parity = int(input("[BET] Please, enter the correct number where you want to place a bet (1 or 2): "))
+        elif bet == 4:
+            half = int(input("[0] No bet\n"
+                             "[1] 1 to 18\n"
+                             "[2] 19 to 36\n"
+                             "[BET] Enter the number where you want to place a bet: "))
+            while half != 1 and half != 2 and half != 0:
+                half = int(input("[BET] Please, enter the correct number where you want to place a bet (1 or 2): "))
+    result = random.randrange(0, 37)
+    print(f"The spin resulted in {result}...")
+    if result == 37:
+        print(f"Pay 00")
+    elif result == number:
+        print(f"Pay {number}")
+    elif result != 0 and result != 37 and color != 0:
+        for i in range(18):
+            if result == black[i] and color == 2:
+                print(f"Pay Black")
+            elif result == red[i] and color == 1:
+                print(f"Pay Red")
+        if result % 2 == 1 and parity == 1:
+            print("Pay Odd")
+        elif result % 2 == 0 and parity == 2:
+            print("Pay Even")
+        elif 0 < result < 19 and half == 1:
+            print("Pay 1 to 18")
+        elif 18 < result < 37 and half == 2:
+            print("Pay 19 to 36")
+    return 1
