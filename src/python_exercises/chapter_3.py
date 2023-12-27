@@ -176,8 +176,29 @@ def menu():
     else:
         exit()
 
+
 def exercise_63_solution():
-    return print("Exercise body")
+    arr = []
+    average = 0
+    number = int(input("Enter a number (enter zero to complete the input): "))
+    if number != 0:
+        arr.append(number)
+        while number != 0:
+            number = int(input("Enter a number (enter zero to complete the input): "))
+            if number != 0:
+                arr.append(number)
+        k = len(arr)
+        for i in range(k):
+            average = average + arr[i]
+        average = average / k
+    else:
+        while number == 0:
+            number = int(input("Enter the correct number (enter zero to complete the input): "))
+            if number != 0:
+                arr.append(number)
+    return print(f"Array: {list(arr)}\n"
+                 f"Average: {int(average)}")
+
 
 
 def exercise_64_solution():
