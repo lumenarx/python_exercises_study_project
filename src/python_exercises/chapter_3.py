@@ -202,8 +202,15 @@ def exercise_63_solution():
 
 
 def exercise_64_solution():
-    return print("Exercise body")
-
+    price = [4.95, 9.95, 14.95, 19.95, 24.95]
+    n = len(price)
+    for i in range(n):
+        discounted_price = price[i] * 0.4
+        print(f"~~~~~~ [ Shelf {i}] ~~~~~~\n"
+              "Original price: %.2f\n"
+              "Discounted price: %.2f\n"
+              "~~~~~~~~~~~~~~~~~~~~~~~~" % (price[i], discounted_price))
+    return 1
 
 def exercise_65_solution():
     return print("Exercise body")
