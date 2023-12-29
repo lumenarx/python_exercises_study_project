@@ -213,11 +213,31 @@ def exercise_64_solution():
     return 1
 
 def exercise_65_solution():
-    return print("Exercise body")
+    for celcius in range(0, 101, 10):
+        fahrenheit = celcius * (9/5) + 32
+        print(f"Celcius: {celcius}, Fahrenheit: {fahrenheit}")
+    return print("~~~ The END of table ~~~")
 
 
 def exercise_66_solution():
-    return print("Exercise body")
+    total_bill = 0
+    item_price = -1
+    items = []
+    while item_price != "":
+        item_price = input("Enter the item's price: ")
+        if item_price != "":
+            items.append(item_price)
+            total_bill += float(item_price)
+    if total_bill % 0.05 > 0.025:
+        total_bill = total_bill - (total_bill % 0.05) + 0.05
+        round(total_bill, 2)
+    else:
+        total_bill = total_bill - (total_bill % 0.05)
+        round(total_bill, 2)
+    n = len(items)
+    for i in range(n):
+        print(f"Item {i}; Price: {items[i]}")
+    return print(f"Total bill: {total_bill}")
 
 
 def exercise_67_solution():
