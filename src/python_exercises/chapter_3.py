@@ -241,7 +241,26 @@ def exercise_66_solution():
 
 
 def exercise_67_solution():
-    return print("Exercise body")
+    x = float(input("Enter the first x-coordinate: "))
+    y = float(input("Enter the first y-coordinate: "))
+    perimeter = 0
+    coordinates = []
+    coordinates.append([x, y])
+    k = 0
+    while str(x) != "":
+        x = input("Enter the next x-coordinate (blank to quit): ")
+        if x == "":
+            perimeter += math.sqrt(
+                (coordinates[k][0] - coordinates[0][0]) ** 2 + (coordinates[k][1] - coordinates[0][1]) ** 2)
+            break
+        else:
+            x = float(x)
+            y = float(input("Enter the next y-coordinate: "))
+            k += 1
+            coordinates.append([x, y])
+            perimeter += math.sqrt(
+                (coordinates[k][0] - coordinates[k - 1][0]) ** 2 + (coordinates[k][1] - coordinates[k - 1][1]) ** 2)
+    return print(f"The perimeter of that polygon is {perimeter}")
 
 
 def exercise_68_solution():
