@@ -264,7 +264,37 @@ def exercise_67_solution():
 
 
 def exercise_68_solution():
-    return print("Exercise body")
+    grade_letters = ['A', 'B', 'C', 'D', 'F']
+    grade_coefficients = [4, 3, 2, 1, 0]
+    new_grade = 0
+    k = 0
+    row = 0
+    average = 0
+    grade = " "
+    grade_list = []
+    print(len(grade))
+    while grade != "":
+        grade = input("Enter a next letter grade: ")
+        if grade != "":
+            grade_list.append(grade)
+            for i in range(5):
+                if grade[0] == grade_letters[i]:
+                    new_grade = float(grade_coefficients[i])
+                    if grade.endswith('+'):
+                        new_grade += 0.3
+                    elif grade.endswith('-') and grade[0] != 'F':
+                        new_grade -= 0.3
+                    elif grade.endswith('++'):
+                        new_grade += 0.6
+                    elif grade.endswith('--') and grade[0] != 'F':
+                        new_grade -= 0.6
+            row += new_grade
+            k += 1
+        else:
+            average = row / k
+    return print(f"Grades: {list(grade_list)}\n"
+                 f"Grades' count: {k}\n"
+                 f"Average grade: {round(average, 2)}")
 
 
 def exercise_69_solution():
