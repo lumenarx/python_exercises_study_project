@@ -200,7 +200,6 @@ def exercise_63_solution():
                  f"Average: {int(average)}")
 
 
-
 def exercise_64_solution():
     price = [4.95, 9.95, 14.95, 19.95, 24.95]
     n = len(price)
@@ -212,10 +211,11 @@ def exercise_64_solution():
               "~~~~~~~~~~~~~~~~~~~~~~~~" % (price[i], discounted_price))
     return 1
 
+
 def exercise_65_solution():
-    for celcius in range(0, 101, 10):
-        fahrenheit = celcius * (9/5) + 32
-        print(f"Celcius: {celcius}, Fahrenheit: {fahrenheit}")
+    for celsius in range(0, 101, 10):
+        fahrenheit = celsius * (9/5) + 32
+        print(f"Celsius: {celsius}, Fahrenheit: {fahrenheit}")
     return print("~~~ The END of table ~~~")
 
 
@@ -244,8 +244,7 @@ def exercise_67_solution():
     x = float(input("Enter the first x-coordinate: "))
     y = float(input("Enter the first y-coordinate: "))
     perimeter = 0
-    coordinates = []
-    coordinates.append([x, y])
+    coordinates = [[x, y]]
     k = 0
     while str(x) != "":
         x = input("Enter the next x-coordinate (blank to quit): ")
@@ -298,7 +297,43 @@ def exercise_68_solution():
 
 
 def exercise_69_solution():
-    return print("Exercise body")
+    group_ages = []
+    ticket_price = [14.00, 23.00, 18.00]
+    age = " "
+    summary = ""
+    k = 1
+    (age_0_to_2, age_3_to_11, age_12_to_65, age_66_to_120) = 0, 0, 0, 0
+    while age != "":
+        age = input(f"Enter the age of guest {k}: ")
+        if age != "":
+            group_ages.append(int(age))
+            k += 1
+        else:
+            n = len(group_ages)
+            for i in range(n):
+                if 0 <= group_ages[i] <= 2:
+                    age_0_to_2 += 1
+                elif 3 <= group_ages[i] <= 11:
+                    age_3_to_11 += 1
+                elif 12 <= group_ages[i] <= 65:
+                    age_12_to_65 += 1
+                elif 66 <= group_ages[i]:
+                    age_66_to_120 += 1
+    if age_0_to_2 > 0:
+        summary += (f"Age 0 to 2: {age_0_to_2} person(s); "
+                    f"One ticket price: FREE\n")
+    if age_3_to_11 > 0:
+        summary += (f"Age 3 to 11: {age_3_to_11} person(s); "
+                    f"One ticket price: ${ticket_price[0]}\n")
+    if age_12_to_65 > 0:
+        summary += (f"Age 12 to 65: {age_12_to_65} person(s) ;"
+                    f"One ticket price: ${ticket_price[1]}\n")
+    if age_66_to_120 > 0:
+        summary += (f"Age 66 to 120: {age_66_to_120} person(s); "
+                    f"One ticket price: ${ticket_price[2]}\n")
+    admission_cost = age_3_to_11 * ticket_price[0] + age_12_to_65 * ticket_price[1] + age_66_to_120 * ticket_price[2]
+    summary += f"Admission cost: ${admission_cost}"
+    return print(summary)
 
 
 def exercise_70_solution():
