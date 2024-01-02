@@ -337,7 +337,18 @@ def exercise_69_solution():
 
 
 def exercise_70_solution():
-    return print("Exercise body")
+    message = " "
+    while message != "":
+        if message != "":
+            message = input("Enter 8 bits: ")
+            if message.count("0") + message.count("1") != 8 or len(message) != 8:
+                message = input("Please, enter 8 bits: ")
+            n = message.count("1")
+            if n % 2 == 1:
+                print("The parity bit is 1")
+            else:
+                print("The parity bit is 0")
+    return 1
 
 
 def exercise_71_solution():
