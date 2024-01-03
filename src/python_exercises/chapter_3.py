@@ -352,7 +352,18 @@ def exercise_70_solution():
 
 
 def exercise_71_solution():
-    return print("Exercise body")
+    d1 = 0
+    pi = 3
+    for i in range(1, 16):
+        d1 += 2
+        d2 = d1 + 1
+        d3 = d1 + 2
+        block = d1 * d2 * d3
+        if i % 2 == 1:
+            pi += (4 / block)
+        else:
+            pi -= (4 / block)
+        print(f"{pi} is the {i} approximation of pi")
 
 
 def exercise_72_solution():
