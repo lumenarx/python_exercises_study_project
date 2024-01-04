@@ -367,7 +367,17 @@ def exercise_71_solution():
 
 
 def exercise_72_solution():
-    return print("Exercise body")
+    number = 1
+    while number != 100:
+        if number % 3 == 0 and number % 5 != 0:
+            print(f"{number}. Answer: Fizz")
+        elif number % 5 == 0 and number % 3 != 0:
+            print(f"{number}. Answer: Buzz")
+        elif number % 3 == 0 and number % 5 == 0:
+            print(f"{number}. Answer: Fizz-Buzz")
+        else:
+            print(f"{number}. Answer: {number}")
+        number += 1
 
 
 def exercise_73_solution():
