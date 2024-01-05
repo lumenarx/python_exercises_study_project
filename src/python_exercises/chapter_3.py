@@ -381,7 +381,42 @@ def exercise_72_solution():
 
 
 def exercise_73_solution():
-    return print("Exercise body")
+    alphabet_number = {
+        1: 'a', 2: 'b', 3: 'c', 4: 'd', 5: 'e',
+        6: 'f', 7: 'g', 8: 'h', 9: 'i', 10: 'j',
+        11: 'k', 12: 'l', 13: 'm', 14: 'n', 15: 'o',
+        16: 'p', 17: 'q', 18: 'r', 19: 's', 20: 't',
+        21: 'u', 22: 'v', 23: 'w', 24: 'x', 25: 'y',
+        26: 'z'
+    }
+    alphabet_letter = {
+        'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5,
+        'f': 6, 'g': 7, 'h': 8, 'i': 9, 'j': 10,
+        'k': 11, 'l': 12, 'm': 13, 'n': 14, 'o': 15,
+        'p': 16, 'q': 17, 'r': 18, 's': 19, 't': 20,
+        'u': 21, 'v': 22, 'w': 23, 'x': 24, 'y': 25,
+        'z': 26
+    }
+    uncoded_message = input("Enter the message: ")
+    coded_message = ""
+    shift = input("Enter the shift amount: ")
+    n = len(uncoded_message)
+    for i in range(n):
+        if uncoded_message[i] != " ":
+            index = alphabet_letter[str.lower(uncoded_message[i])]
+            index += int(shift)
+            print(f"Uncoded: {uncoded_message[i]}\n"
+                  f"Index shifted: {index}")
+            if index > 26:
+                index -= 26
+            if uncoded_message[i].islower():
+                coded_message += alphabet_number[index]
+            else:
+                coded_message += str.upper(alphabet_number[index])
+            print(f"New letter: {alphabet_number[index]}")
+        else:
+            coded_message += " "
+    print(f"Coded: {coded_message}")
 
 
 def exercise_74_solution():
