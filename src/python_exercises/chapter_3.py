@@ -420,7 +420,11 @@ def exercise_73_solution():
 
 
 def exercise_74_solution():
-    return print("Exercise body")
+    number = float(input("Enter the number to find it's square root: "))
+    guess = number / 2
+    while round(guess * guess, 12) != number:
+        guess = (guess + number / guess) / 2
+    return print(f"Square root: {guess}")
 
 
 def exercise_75_solution():
