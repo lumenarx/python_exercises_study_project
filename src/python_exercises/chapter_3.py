@@ -458,7 +458,34 @@ def exercise_76_solution():
 
 
 def exercise_77_solution():
-    return print("Exercise body")
+    for i in range(11):
+        if i == 0:
+            print(" #", end="")
+            for j in range(10):
+                number = j + 1
+                line = len(str(number))
+                if line == 3:
+                    print(" " + str(number) + " ", end="")
+                elif line == 2:
+                    print("  " + str(number) + " ", end="")
+                elif line == 1:
+                    print("   " + str(number) + " ", end="")
+            print("\n")
+        else:
+            if len(str(i)) == 1:
+                print(f" {i}", end="")
+            else:
+                print(f"{i}", end="")
+            for j in range(10):
+                number = (j + 1) * i
+                line = len(str(number))
+                if line == 3:
+                    print(" " + str(number) + " ", end="")
+                elif line == 2:
+                    print("  " + str(number) + " ", end="")
+                elif line == 1:
+                    print("   " + str(number) + " ", end="")
+            print("\n")
 
 
 def exercise_78_solution():
