@@ -428,11 +428,33 @@ def exercise_74_solution():
 
 
 def exercise_75_solution():
-    return print("Exercise body")
+    text = input("Enter a string to see if it is a palindrome: ")
+    n = len(text) - 1
+    text_reversed = ""
+    for i in range(n, -1, -1):
+        text_reversed += str.lower(text[i])
+    if str.lower(text_reversed) == str.lower(text):
+        return print(f"The string {text} is a palindrome.")
+    else:
+        return print(f"The string {text} is NOT a palindrome.")
 
 
 def exercise_76_solution():
-    return print("Exercise body")
+    text = input("Enter a string to see if it is a palindrome: ")
+    n = len(text)
+    text_reversed = ""
+    text_without_spaces = ""
+    for i in range(n):
+        if text[i] != " ":
+            text_without_spaces += text[i]
+    print(text_without_spaces)
+    n = len(text_without_spaces) - 1
+    for i in range(n, -1, -1):
+        text_reversed += str.lower(text_without_spaces[i])
+    if str.lower(text_reversed) == str.lower(text_without_spaces):
+        return print(f"The string {text} is a palindrome.")
+    else:
+        return print(f"The string {text} is NOT a palindrome.")
 
 
 def exercise_77_solution():
