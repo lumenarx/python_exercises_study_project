@@ -489,7 +489,25 @@ def exercise_77_solution():
 
 
 def exercise_78_solution():
-    return print("Exercise body")
+    number = int(input("Enter an integer: "))
+    sequence = []
+    if number <= 0:
+        return print("The program is finished")
+    else:
+        sequence.append(number)
+        n = len(sequence) - 1
+        while sequence[n] != 1:
+            n = len(sequence) - 1
+            if sequence[n] != 1:
+                if sequence[n] % 2 == 0:
+                    element = math.floor(sequence[n] / 2)
+                    sequence.append(element)
+                else:
+                    element = sequence[n] * 3 + 1
+                    sequence.append(element)
+            else:
+                break
+        return print(f"End: {sequence[n]}")
 
 
 def exercise_79_solution():
