@@ -511,7 +511,15 @@ def exercise_78_solution():
 
 
 def exercise_79_solution():
-    return print("Exercise body")
+    number_1 = int(input("Enter the first integer: "))
+    number_2 = int(input("Enter the second integer: "))
+    if number_2 > number_1:
+        d = number_1
+    else:
+        d = number_2
+    while number_1 % d != 0 or number_2 % d != 0:
+        d -= 1
+    return print("The greatest common divisor: %d" % d)
 
 
 def exercise_80_solution():
