@@ -1,7 +1,7 @@
 import chapter_1
 import chapter_2
 import chapter_3
-import exercises
+import chapter_4
 
 
 def menu():
