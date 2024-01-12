@@ -1,6 +1,8 @@
 from exercises import EXERCISE
 import __main__
 import math
+import numpy
+import random
 """
 Loading the EXERCISE class that is being used 
 to combine an exercise name and a solution into one
@@ -523,7 +525,19 @@ def exercise_79_solution():
 
 
 def exercise_80_solution():
-    return print("Exercise body")
+    number = int(input("Enter an integer (2 or greater): "))
+    while number <= 2:
+        number = int(input("Enter an integer (2 or greater): "))
+    factor = 2
+    pf = []
+    n = number
+    while factor <= n:
+        if n % factor == 0:
+            pf.append(factor)
+            n = math.floor(n / factor)
+        else:
+            factor += 1
+    return print(f"The prime factors: {list(pf)}")
 
 
 def exercise_81_solution():
