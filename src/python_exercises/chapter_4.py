@@ -1,3 +1,5 @@
+import time
+
 from exercises import EXERCISE
 import __main__
 import math
