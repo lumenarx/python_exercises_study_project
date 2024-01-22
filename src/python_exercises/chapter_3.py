@@ -541,11 +541,29 @@ def exercise_80_solution():
 
 
 def exercise_81_solution():
-    return print("Exercise body")
+    number = (input("Enter the binary number: "))
+    n = len(number)
+    j = len(number) - 1
+    h = 0
+    for i in range(n):
+        print(i, j, h)
+        h += int(number[i]) * 2 ** j
+        j -= 1
+    return print(f"Decimal number: {h}")
 
 
 def exercise_82_solution():
-    return print("Exercise body")
+    number = (input("Enter a decimal number: "))
+    arr = []
+    while number != 0:
+        h = int(number) % 2
+        arr.append(h)
+        number = int(number) // 2
+    n = len(arr)
+    arr_2 = []
+    for i in range(n - 1, -1, -1):
+        arr_2.append(arr[i])
+    return print(f"Binary: {list(arr_2)}")
 
 
 def exercise_83_solution():
