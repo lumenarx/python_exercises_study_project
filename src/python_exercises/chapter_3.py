@@ -567,7 +567,17 @@ def exercise_82_solution():
 
 
 def exercise_83_solution():
-    return print("Exercise body")
+    n = random.randrange(1, 100)
+    max_number = 0
+    k = 0
+    for i in range(n):
+        number = random.randrange(1, 101)
+        print(number)
+        if number > max_number:
+            max_number = number
+            k += 1
+    return print(f"The maximum value found was {max_number}\n"
+                 f"The maximum value was updated {k} time(s)")
 
 
 def exercise_84_solution():
