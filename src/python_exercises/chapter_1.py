@@ -138,7 +138,7 @@ def menu():
     print("[33] %s" % exercise_name[33])
     print("[34] %s" % exercise_name[34])
     print("[0] Exit to the main menu")
-    option = int(input("Enter the number of a chapter: "))
+    option = int(input("Enter the number of an exercise: "))
     if option == 111:
         print(COPYRIGHT)
     elif option == 1:

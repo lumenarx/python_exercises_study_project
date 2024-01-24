@@ -104,7 +104,7 @@ def menu():
     print("[83] %s" % exercise_name[83])
     print("[84] %s" % exercise_name[84])
     print("[0] Exit to the main menu")
-    option = int(input("Enter the number of a chapter: "))
+    option = int(input("Enter the number of an exercise: "))
     if option == 111:
         print(COPYRIGHT)
     elif option == 0:
@@ -581,4 +581,29 @@ def exercise_83_solution():
 
 
 def exercise_84_solution():
-    return print("Exercise body")
+    coin = {0: "H", 1: "T"}
+    result = ""
+    flips = []
+    result_list = []
+    counter = 0
+    for i in range(0, 10):
+        while counter != 3:
+            n = random.randrange(0, 2)
+            result += coin[n]
+            if counter == 0:
+                counter += 1
+            elif counter == 1 or counter == 2:
+                k = len(result)
+                if result[k - 1] == result[k - 2]:
+                    counter += 1
+                    if counter == 3:
+                        flips.append(len(result))
+                        result_list.append(result)
+                        counter = 0
+                        result = ""
+                        break
+                else:
+                    counter = 0
+        print(f"{result_list[i]} ({flips[i]} flip(s))")
+    avg = numpy.average(flips)
+    return print(f"On average, {avg} flips were needed.")

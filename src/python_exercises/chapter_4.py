@@ -50,11 +50,11 @@ AUTHORS = (
 )
 
 COPYRIGHT = (
-    STMP_1
-    + "[ COPYRIGHT ]"
-    + STMP_1
-    + AUTHORS
-    + STMP_2
+        STMP_1
+        + "[ COPYRIGHT ]"
+        + STMP_1
+        + AUTHORS
+        + STMP_2
 )
 
 EXERCISE_85_NAME = (STMP_1 + "%s" % exercise_name[85])
@@ -114,7 +114,7 @@ def menu():
     print("[108] %s" % exercise_name[108])
     print("[109] %s" % exercise_name[109])
     print("[0] Exit to the main menu")
-    option = int(input("Enter the number of a chapter: "))
+    option = int(input("Enter the number of an exercise: "))
     if option == 111:
         print(COPYRIGHT)
     elif option == 0:
@@ -199,7 +199,10 @@ def menu():
 
 
 def exercise_85_solution():
-    return print("Exercise body")
+    a = float(input("Enter the first shorter side of a right triangle: "))
+    b = float(input("Enter the first shorter side of a right triangle: "))
+    c = math.sqrt(a ** 2 + b ** 2)
+    return print(f"The hypotenuse equals {c}")
 
 
 def exercise_86_solution():
