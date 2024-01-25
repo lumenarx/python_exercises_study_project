@@ -206,11 +206,25 @@ def exercise_85_solution():
 
 
 def exercise_86_solution():
-    return print("Exercise body")
+    base = 4.00
+    fare = 0.25
+    distance = float(input("Enter the distance: "))
+    total_fare = base + (distance / 140) * 0.25
+    return print(f"The total fate is ${total_fare}")
 
 
 def exercise_87_solution():
-    return print("Exercise body")
+    rate = 10.95
+    subsequent = 2.95
+    total_cost = 0
+    number = int(input("Enter the number of goods: "))
+    if number >= 2:
+        total_cost = rate + number * subsequent
+    elif number == 1:
+        total_cost = rate
+    else:
+        number = int(input("Enter the number of goods (1 or more): "))
+    return print(f"Total cost: ${total_cost}")
 
 
 def exercise_88_solution():
