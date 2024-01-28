@@ -228,11 +228,39 @@ def exercise_87_solution():
 
 
 def exercise_88_solution():
-    return print("Exercise body")
+    names = ["first", "second", "third"]
+    arr = []
+    for i in range(3):
+        n = float(input(f"Enter the {names[i]} with spaces: "))
+        arr.append(n)
+    if arr[0] < arr[1] < arr[2] or arr[0] > arr[1] > arr[2]:
+        return print(f"The median is {arr[1]}")
+    elif arr[1] < arr[2] < arr[0] or arr[1] > arr[2] > arr[0]:
+        return print(f"The median is {arr[2]}")
+    elif arr[2] < arr[0] < arr[1] or arr[2] > arr[0] > arr[1]:
+        return print(f"The median is {arr[0]}")
 
 
 def exercise_89_solution():
-    return print("Exercise body")
+    ordinal = {
+        1: "first",
+        2: "second",
+        3: "third",
+        4: "fourth",
+        5: "fifth",
+        6: "sixth",
+        7: "sevens",
+        8: "eights",
+        9: "nines",
+        10: "tenth",
+        11: "eleventh",
+        12: "twelfth"
+    }
+    n = int(input("Enter an integer number: "))
+    if n < 1 or n > 12:
+        return print("Empty")
+    else:
+        return print(f"{n}: {ordinal[n]}")
 
 
 def exercise_90_solution():
