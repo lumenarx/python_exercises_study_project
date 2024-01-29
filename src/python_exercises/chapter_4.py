@@ -264,7 +264,48 @@ def exercise_89_solution():
 
 
 def exercise_90_solution():
-    return print("Exercise body")
+    ordinal = {
+        1: "first",
+        2: "second",
+        3: "third",
+        4: "fourth",
+        5: "fifth",
+        6: "sixth",
+        7: "sevens",
+        8: "eights",
+        9: "nines",
+        10: "tenth",
+        11: "eleventh",
+        12: "twelfth"
+    }
+    present_list = ""
+    presents = {
+        1: "A partridge in a pear tree.",
+        2: "Two turtle doves,\n",
+        3: "Three French hens,\n",
+        4: "Four calling birds,\n",
+        5: "Five gold rings,\n",
+        6: "Six geese a - laying,\n",
+        7: "Seven swans a-swimming,\n",
+        8: "Eight maids a-milking,\n",
+        9: "Nine ladies dancing,\n",
+        10: "Ten lords a-leaping,\n",
+        11: "Eleven pipers piping,\n",
+        12: "Twelve drummers drumming,\n"
+    }
+    for n in range(1, 13):
+        present_list += presents[n]
+        time.sleep(0.80)
+        if n == 1:
+            print(f"On the {ordinal[n]} day of Christmas\n"
+                  f"my true love sent to me:\n"
+                  f"{present_list}")
+        else:
+            print(f"\n\n"
+                  f"On the {ordinal[n]} day of Christmas\n"
+                  f"my true love sent to me:\n"
+                  f"{present_list}"
+                  f"And a partridge in a pear tree.")
 
 
 def exercise_91_solution():
