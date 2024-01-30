@@ -309,7 +309,41 @@ def exercise_90_solution():
 
 
 def exercise_91_solution():
-    return print("Exercise body")
+    day = int(input("Enter a day of the month: "))
+    month = int(input("Enter a month: "))
+    year = int(input("Enter a year: "))
+    c_date = ordinal_date(day, month, year)
+    print(c_date)
+
+
+def leap_year(year):
+    if year % 400 == 0:
+        return True
+    else:
+        if year % 100 == 0:
+            return False
+        else:
+            if year % 4 == 0:
+                return True
+            else:
+                return False
+
+
+def ordinal_date(day, month, year):
+    days_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    c_date = 0
+    leap = leap_year(year)
+    if leap:
+        for i in range(0, month - 1):
+            c_date += days_in_month[i]
+        c_date += day
+        if c_date >= 59:
+            c_date += 1
+    else:
+        for i in range(0, month - 1):
+            c_date += days_in_month[i]
+        c_date += day
+    return c_date
 
 
 def exercise_92_solution():
