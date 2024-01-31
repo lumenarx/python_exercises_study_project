@@ -347,7 +347,31 @@ def ordinal_date(day, month, year):
 
 
 def exercise_92_solution():
-    return print("Exercise body")
+    months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august',
+              'september', 'october', 'november', 'december']
+    year = int(input("Enter a year: "))
+    o_date = int(input("Enter an ordinal date: "))
+    arr = gregorian_date(year, o_date)
+    index = arr[0]
+    day = arr[1]
+    return print("Date: %d %s, %d" % (day, months[index], year))
+
+
+def gregorian_date(year, o_date):
+    mm_dd = []
+    days_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    k = 0
+    leap = leap_year(year)
+    if leap:
+        days_in_month[1] = 29
+    while o_date > 0:
+        if o_date - days_in_month[k] > 0:
+            o_date -= days_in_month[k]
+            k += 1
+        else:
+            mm_dd = [k, o_date]
+            break
+    return mm_dd
 
 
 def exercise_93_solution():
