@@ -375,7 +375,14 @@ def gregorian_date(year, o_date):
 
 
 def exercise_93_solution():
-    return print("Exercise body")
+    line = input("Enter the string content: ")
+    window = int(input("Enter a width of the window: "))
+    if len(line) >= window:
+        return print(line)
+    else:
+        spaces = (window - len(line)) // 2
+        new_line = "_" * spaces + line + "_" * spaces
+        return print(new_line)
 
 
 def exercise_94_solution():
