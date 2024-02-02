@@ -386,7 +386,21 @@ def exercise_93_solution():
 
 
 def exercise_94_solution():
-    return print("Exercise body")
+    a = float(input("Enter the first side of the triangle."))
+    b = float(input("Enter the second side of the triangle."))
+    c = float(input("Enter the third side of the triangle."))
+    flag = triangle_validation(a, b, c)
+    if flag:
+        return print("A triangle can be formed from given sides.")
+    else:
+        return print("You can not form a triangle from given sides.")
+
+
+def triangle_validation(a, b, c):
+    if a <= 0 or b <= 0 or c <= 0:
+        return False
+    if a + b > c and b + c > a and c + a > b:
+        return True
 
 
 def exercise_95_solution():
