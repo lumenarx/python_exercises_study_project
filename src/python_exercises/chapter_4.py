@@ -404,7 +404,19 @@ def triangle_validation(a, b, c):
 
 
 def exercise_95_solution():
-    return print("Exercise body")
+    line = input("Enter a string content: ")
+    n = len(line)
+    line_list = list(line)
+    for i in range(n):
+        if ((line[i - 1] == "." or line[i - 1] == "!" or line[i - 1] == "?") or
+                (line[i - 2] == "." or line[i - 2] == "!" or line[i - 2] == "?") and (line[i - 1] == " ")):
+            buff = line_list[i].upper()
+            line_list[i] = buff
+        if line[i] == "i" and line[i - 1] == " " and (line[i + 1] == "'" or line[i + 1] == " "):
+            buff = line_list[i].upper()
+            line_list[i] = buff
+    new_line = "".join(line_list)
+    return print(new_line)
 
 
 def exercise_96_solution():
