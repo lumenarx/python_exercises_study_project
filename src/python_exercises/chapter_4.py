@@ -1,5 +1,5 @@
 import time
-
+import random
 from exercises import EXERCISE
 import __main__
 import math
@@ -420,7 +420,27 @@ def exercise_95_solution():
 
 
 def exercise_96_solution():
-    return print("Exercise body")
+    line = input("Enter a string: ")
+    if is_integer(line):
+        return print(f"The string {line} contents an integer.")
+    else:
+        return print(f"The string {line} does not content an integer.")
+
+
+def is_integer(string):
+    line = str(string.strip(" "))
+    print(line)
+    if len(line) > 1 and line.isdigit() is True:
+        print(line)
+        return True
+    elif len(line) > 1 and (line[0] == "+" or line[0] == "-"):
+        line2 = str(line.strip("+- "))
+        if len(line2) > 1 and line2.isdigit() is True:
+            print(line2)
+            return True
+    else:
+        print(line, line)
+        return False
 
 
 def exercise_97_solution():
