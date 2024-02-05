@@ -444,7 +444,26 @@ def is_integer(string):
 
 
 def exercise_97_solution():
-    return print("Exercise body")
+    line = input("Enter the string content: ")
+    result = precedence(line)
+    while result == -1:
+        line = input("Incorrect input. Please, enter a math operator: ")
+        result = precedence(line)
+        if result != -1:
+            return print(precedence(line), line)
+
+
+def precedence(line):
+    n = len(line)
+    for i in range(n):
+        if line[i] == "+" or line[i] == "-":
+            return 1
+        elif line[i] == "*" or line[i] == "/":
+            return 2
+        elif line[i] == "^":
+            return 3
+    else:
+        return -1
 
 
 def exercise_98_solution():
