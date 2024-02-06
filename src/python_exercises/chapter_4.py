@@ -467,7 +467,29 @@ def precedence(line):
 
 
 def exercise_98_solution():
-    return print("Exercise body")
+    n = int(input("Enter an integer: "))
+    if prime_number(n):
+        return print("This is a prime number.")
+    else:
+        return print("This is not a prime number.")
+
+
+def prime_number(n):
+    table = [True] * (n + 1)
+    table[0] = False
+    table[1] = False
+    d = 2
+    while d * d <= n:
+        if table[d]:
+            for i in range(d * d, n + 1, d):
+                table[i] = False
+                print(i, table[i])
+        d += 1
+    g = len(table) - 1
+    if table[g]:
+        return True
+    else:
+        return False
 
 
 def exercise_99_solution():
