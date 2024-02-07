@@ -493,7 +493,15 @@ def prime_number(n):
 
 
 def exercise_99_solution():
-    return print("Exercise body")
+    n = int(input("Enter an integer: "))
+    return print(next_prime(n))
+
+
+def next_prime(n):
+    g = n + 1
+    while prime_number(g) is not True:
+        g = g + 1
+    return g
 
 
 def exercise_100_solution():
