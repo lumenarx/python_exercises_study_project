@@ -505,7 +505,18 @@ def next_prime(n):
 
 
 def exercise_100_solution():
-    return print("Exercise body")
+    for i in range(10):
+        print(generate_password())
+    return 1
+
+
+def generate_password():
+    password = ""
+    length = random.randrange(7, 11)
+    for i in range(length):
+        symbol_ascii = random.randrange(33, 127)
+        password += chr(symbol_ascii)
+    return password
 
 
 def exercise_101_solution():
