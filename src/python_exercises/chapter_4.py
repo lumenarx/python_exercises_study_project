@@ -520,7 +520,21 @@ def generate_password():
 
 
 def exercise_101_solution():
-    return print("Exercise body")
+    number = int(input("Enter a number of plates to generate: "))
+    for i in range(number):
+        print(generate_plate())
+
+
+def generate_plate():
+    plate = ""
+    for i in range(7):
+        if i <= 3:
+            n = random.randrange(0, 10)
+            plate += str(n)
+        else:
+            n = random.randrange(65, 91)
+            plate += chr(n)
+    return plate
 
 
 def exercise_102_solution():
