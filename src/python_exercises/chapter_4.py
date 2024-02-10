@@ -538,7 +538,32 @@ def generate_plate():
 
 
 def exercise_102_solution():
-    return print("Exercise body")
+    password = input("Enter a password: ")
+    password_check(password)
+    if password_check(password):
+        return print("This password is good.")
+    else:
+        return print("This password is weak.")
+
+
+def password_check(password):
+    length = False
+    lower_case = False
+    upper_case = False
+    number = False
+    if len(password) >= 8:
+        length = True
+    for i in range(len(password)):
+        if password[i].islower() and lower_case is False:
+            lower_case = True
+        elif password[i].isupper() and upper_case is False:
+            upper_case = True
+        elif password[i].isdigit() and number is False:
+            number = True
+    if length and lower_case and upper_case and number:
+        return True
+    else:
+        return False
 
 
 def exercise_103_solution():
