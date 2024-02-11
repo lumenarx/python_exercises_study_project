@@ -578,7 +578,86 @@ def exercise_103_solution():
 
 
 def exercise_104_solution():
-    return print("Exercise body")
+    line = input("Enter an integer: ")
+    number1 = int_to_hex(line)
+    number2 = hex_to_int(number1)
+    print(number1)
+    print(number2)
+
+
+def hex_to_int(hex_number):
+    base = {
+        "0": 0,
+        "1": 1,
+        "2": 2,
+        "3": 3,
+        "4": 4,
+        "5": 5,
+        "6": 6,
+        "7": 7,
+        "8": 8,
+        "9": 9,
+        "A": 10,
+        "B": 11,
+        "C": 12,
+        "D": 13,
+        "E": 14,
+        "F": 15
+    }
+    int_number = 0
+    result = ""
+    n = len(hex_number)
+    if hex_number[0] == "+" or hex_number[0] == "-":
+        d = len(hex_number) - 2
+        result += hex_number[0]
+        for i in range(1, n):
+            upper_case = hex_number[i].upper()
+            int_number += base[upper_case] * 16 ** d
+            d -= 1
+    else:
+        d = len(hex_number) - 1
+        for i in range(n):
+            upper_case = hex_number[i].upper()
+            int_number += base[upper_case] * 16 ** d
+            d -= 1
+    result += str(int_number)
+    return result
+
+
+def int_to_hex(int_number):
+    base = {
+        0: "0",
+        1: "1",
+        2: "2",
+        3: "3",
+        4: "4",
+        5: "5",
+        6: "6",
+        7: "7",
+        8: "8",
+        9: "9",
+        10: "A",
+        11: "B",
+        12: "C",
+        13: "D",
+        14: "E",
+        15: "F"
+    }
+    hex_number = ""
+    reversed_number = []
+    if int_number[0] == "+" or int_number[0] == "-":
+        number = int(int_number.strip("+-"))
+        hex_number += int_number[0]
+    else:
+        number = int(int_number)
+    while number != 0:
+        g = number % 16
+        reversed_number.append(g)
+        number //= 16
+    h = len(reversed_number) - 1
+    for i in range(h, -1, -1):
+        hex_number += base[reversed_number[i]].lower()
+    return hex_number
 
 
 def exercise_105_solution():
