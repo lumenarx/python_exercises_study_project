@@ -567,7 +567,14 @@ def password_check(password):
 
 
 def exercise_103_solution():
-    return print("Exercise body")
+    password = ""
+    validation = False
+    attempts = 0
+    while validation is False:
+        password = generate_password()
+        validation = password_check(password)
+        attempts += 1
+    print(F"{password} is good password which was made on {attempts} attempt(s).")
 
 
 def exercise_104_solution():
