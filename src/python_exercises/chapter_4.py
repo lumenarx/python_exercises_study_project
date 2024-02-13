@@ -85,7 +85,7 @@ EXERCISE_109_NAME = (STMP_1 + "%s" % exercise_name[109])
 
 
 def menu():
-    """Creating chapter's 3 menu"""
+    """Creating chapter's 4 menu"""
     print("[-----------] Menu [-----------] ")
     print("[111] COPYRIGHT ")
     print("[85] %s" % exercise_name[85])
@@ -209,21 +209,20 @@ def exercise_86_solution():
     base = 4.00
     fare = 0.25
     distance = float(input("Enter the distance: "))
-    total_fare = base + (distance / 140) * 0.25
+    total_fare = base + (distance / 140) * fare
     return print(f"The total fate is ${total_fare}")
 
 
 def exercise_87_solution():
     rate = 10.95
     subsequent = 2.95
-    total_cost = 0
     number = int(input("Enter the number of goods: "))
-    if number >= 2:
-        total_cost = rate + number * subsequent
-    elif number == 1:
+    while number < 1:
+        number = int(input("Enter the number of goods (1 or more): "))
+    if number == 1:
         total_cost = rate
     else:
-        number = int(input("Enter the number of goods (1 or more): "))
+        total_cost = rate + number * subsequent
     return print(f"Total cost: ${total_cost}")
 
 
@@ -661,7 +660,90 @@ def int_to_hex(int_number):
 
 
 def exercise_105_solution():
-    return print("Exercise body")
+    line = input("Enter an integer: ")
+    base = int(input("Enter the base (from 2 to 16): "))
+    if not (2 <= base <= 16):
+        print("The base of %d is incorrect." % base)
+        return 0
+    new_base = int(input("Enter a new base (from 2 to 16): "))
+    if not (2 <= new_base <= 16):
+        print("The base of %d is incorrect." % new_base)
+        return 0
+    return print(converter(line, base, new_base))
+
+
+def converter(initial_number, initial_base, new_base):
+    base_char = {
+        "0": 0,
+        "1": 1,
+        "2": 2,
+        "3": 3,
+        "4": 4,
+        "5": 5,
+        "6": 6,
+        "7": 7,
+        "8": 8,
+        "9": 9,
+        "A": 10,
+        "B": 11,
+        "C": 12,
+        "D": 13,
+        "E": 14,
+        "F": 15
+    }
+    base_int = {
+        0: "0",
+        1: "1",
+        2: "2",
+        3: "3",
+        4: "4",
+        5: "5",
+        6: "6",
+        7: "7",
+        8: "8",
+        9: "9",
+        10: "A",
+        11: "B",
+        12: "C",
+        13: "D",
+        14: "E",
+        15: "F"
+    }
+    int_number = 0
+    decimal_base = ""
+    reversed_number = []
+    result = ""
+    n = len(initial_number)
+    if initial_base != 10:
+        if initial_number[0] == "+" or initial_number[0] == "-":
+            d = len(initial_number) - 2
+            decimal_base += initial_number[0]
+            for i in range(1, n):
+                upper_case = initial_number[i].upper()
+                int_number += base_char[upper_case] * initial_base ** d
+                d -= 1
+        else:
+            d = len(initial_number) - 1
+            for i in range(n):
+                upper_case = initial_number[i].upper()
+                int_number += base_char[upper_case] * initial_base ** d
+                d -= 1
+        decimal_base += str(int_number)
+    else:
+        decimal_base = initial_number
+    if decimal_base[0] == "+" or decimal_base[0] == "-":
+        new_number = int(decimal_base.strip("+-"))
+        result += decimal_base[0]
+    else:
+        new_number = int(decimal_base)
+    while new_number != 0:
+        g = new_number % new_base
+        reversed_number.append(g)
+        new_number //= new_base
+    h = len(reversed_number) - 1
+    for i in range(h, -1, -1):
+        result += base_int[reversed_number[i]].lower()
+    return result
 
 
 def exercise_106_solution():
