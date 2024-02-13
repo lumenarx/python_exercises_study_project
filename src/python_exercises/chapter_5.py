@@ -1,0 +1,305 @@
+from exercises import EXERCISE
+import __main__
+
+"""
+Loading the EXERCISE class that is being used 
+to combine an exercise name and a solution into one
+"""
+
+exercise_name = {
+    110: "Exercise 110: Sorted Order",
+    111: "Exercise 111: Reverse Order",
+    112: "Exercise 112: Remove Outliers",
+    113: "Exercise 113: Avoiding Duplicates",
+    114: "Exercise 114: Negatives, Zeros and Positives",
+    115: "Exercise 115: List of Proper Divisors",
+    116: "Exercise 116: Perfect Numbers",
+    117: "Exercise 117: Only the Words",
+    118: "Exercise 118: Word by Word Palindromes",
+    119: "Exercise 119: Below and Above Average",
+    120: "Exercise 120: Formatting a List",
+    121: "Exercise 121: Random Lottery Numbers",
+    122: "Exercise 122: Pig Latin",
+    123: "Exercise 123: Pig Latin Improved",
+    124: "Exercise 124: Line of Best Fit",
+    125: "Exercise 125: Shuffling a Deck of Cards",
+    126: "Exercise 126: Dealing Hands of Cards",
+    127: "Exercise 127: Is a List already in Sorted Order?",
+    128: "Exercise 128: Count the Elements",
+    129: "Exercise 129: Tokenizing a String",
+    130: "Exercise 130: Unary and Binary Operators",
+    131: "Exercise 131: Infix to Postfix",
+    132: "Exercise 132: Evaluate Postfix",
+    133: "Exercise 133: Does a List Contain a Sublist?",
+    134: "Exercise 134: Generate All Sublists of a List",
+    135: "Exercise 135: The Sieve of Eratosthenes"
+}
+
+# Starting string template for visual border printing
+STMP_1 = "---------------------------------------------------------------------------\n"
+# Finishing string template for visual border printing
+STMP_2 = "\n---------------------------------------------------------------------------"
+# I want to thank the authors of this book and recommend it to other students and beginners
+AUTHORS = (
+    "This is a solution of exercises represented in this book\n"
+    "© The Python Workbook. A Brief Introduction with Exercises and Solutions\n"
+    "© Ben Stephenson/Springer Nature Switzerland AG 2019\n"
+    "https://doi.org/10.1257/11600-3-030-1113120-3"
+)
+
+COPYRIGHT = (
+        STMP_1
+        + "[ COPYRIGHT ]"
+        + STMP_1
+        + AUTHORS
+        + STMP_2
+)
+
+EXERCISE_110_NAME = (STMP_1 + "%s" % exercise_name[110])
+EXERCISE_111_NAME = (STMP_1 + "%s" % exercise_name[111])
+EXERCISE_112_NAME = (STMP_1 + "%s" % exercise_name[112])
+EXERCISE_113_NAME = (STMP_1 + "%s" % exercise_name[113])
+EXERCISE_114_NAME = (STMP_1 + "%s" % exercise_name[114])
+EXERCISE_115_NAME = (STMP_1 + "%s" % exercise_name[115])
+EXERCISE_116_NAME = (STMP_1 + "%s" % exercise_name[116])
+EXERCISE_117_NAME = (STMP_1 + "%s" % exercise_name[117])
+EXERCISE_118_NAME = (STMP_1 + "%s" % exercise_name[118])
+EXERCISE_119_NAME = (STMP_1 + "%s" % exercise_name[119])
+EXERCISE_120_NAME = (STMP_1 + "%s" % exercise_name[120])
+EXERCISE_121_NAME = (STMP_1 + "%s" % exercise_name[121])
+EXERCISE_122_NAME = (STMP_1 + "%s" % exercise_name[122])
+EXERCISE_123_NAME = (STMP_1 + "%s" % exercise_name[123])
+EXERCISE_124_NAME = (STMP_1 + "%s" % exercise_name[124])
+EXERCISE_125_NAME = (STMP_1 + "%s" % exercise_name[125])
+EXERCISE_126_NAME = (STMP_1 + "%s" % exercise_name[126])
+EXERCISE_127_NAME = (STMP_1 + "%s" % exercise_name[127])
+EXERCISE_128_NAME = (STMP_1 + "%s" % exercise_name[128])
+EXERCISE_129_NAME = (STMP_1 + "%s" % exercise_name[129])
+EXERCISE_130_NAME = (STMP_1 + "%s" % exercise_name[130])
+EXERCISE_131_NAME = (STMP_1 + "%s" % exercise_name[131])
+EXERCISE_132_NAME = (STMP_1 + "%s" % exercise_name[132])
+EXERCISE_133_NAME = (STMP_1 + "%s" % exercise_name[133])
+EXERCISE_134_NAME = (STMP_1 + "%s" % exercise_name[134])
+EXERCISE_135_NAME = (STMP_1 + "%s" % exercise_name[135])
+
+
+def menu():
+    """Creating chapter's 5 menu"""
+    print("[-----------] Menu [-----------] ")
+    print("[111] COPYRIGHT ")
+    print("[110] %s" % exercise_name[110])
+    print("[111] %s" % exercise_name[111])
+    print("[112] %s" % exercise_name[112])
+    print("[113] %s" % exercise_name[113])
+    print("[114] %s" % exercise_name[114])
+    print("[115] %s" % exercise_name[115])
+    print("[116] %s" % exercise_name[116])
+    print("[117] %s" % exercise_name[117])
+    print("[118] %s" % exercise_name[118])
+    print("[119] %s" % exercise_name[119])
+    print("[120] %s" % exercise_name[120])
+    print("[121] %s" % exercise_name[121])
+    print("[122] %s" % exercise_name[122])
+    print("[123] %s" % exercise_name[123])
+    print("[124] %s" % exercise_name[124])
+    print("[125] %s" % exercise_name[125])
+    print("[126] %s" % exercise_name[126])
+    print("[127] %s" % exercise_name[127])
+    print("[128] %s" % exercise_name[128])
+    print("[129] %s" % exercise_name[129])
+    print("[130] %s" % exercise_name[130])
+    print("[131] %s" % exercise_name[131])
+    print("[132] %s" % exercise_name[132])
+    print("[133] %s" % exercise_name[133])
+    print("[134] %s" % exercise_name[134])
+    print("[135] %s" % exercise_name[135])
+    print("[0] Exit to the main menu")
+    option = int(input("Enter the number of an exercise: "))
+    if option == 111:
+        print(COPYRIGHT)
+    elif option == 0:
+        __main__.menu()
+    elif option == 110:
+        problem110 = EXERCISE(EXERCISE_110_NAME)
+        problem110.run(exercise_110_solution, menu)
+    elif option == 111:
+        problem111 = EXERCISE(EXERCISE_111_NAME)
+        problem111.run(exercise_111_solution, menu)
+    elif option == 112:
+        problem112 = EXERCISE(EXERCISE_112_NAME)
+        problem112.run(exercise_112_solution, menu)
+    elif option == 113:
+        problem113 = EXERCISE(EXERCISE_113_NAME)
+        problem113.run(exercise_113_solution, menu)
+    elif option == 114:
+        problem114 = EXERCISE(EXERCISE_114_NAME)
+        problem114.run(exercise_114_solution, menu)
+    elif option == 115:
+        problem115 = EXERCISE(EXERCISE_115_NAME)
+        problem115.run(exercise_115_solution, menu)
+    elif option == 116:
+        problem116 = EXERCISE(EXERCISE_116_NAME)
+        problem116.run(exercise_116_solution, menu)
+    elif option == 117:
+        problem117 = EXERCISE(EXERCISE_117_NAME)
+        problem117.run(exercise_117_solution, menu)
+    elif option == 118:
+        problem118 = EXERCISE(EXERCISE_118_NAME)
+        problem118.run(exercise_118_solution, menu)
+    elif option == 119:
+        problem119 = EXERCISE(EXERCISE_119_NAME)
+        problem119.run(exercise_119_solution, menu)
+    elif option == 120:
+        problem120 = EXERCISE(EXERCISE_120_NAME)
+        problem120.run(exercise_120_solution, menu)
+    elif option == 121:
+        problem121 = EXERCISE(EXERCISE_121_NAME)
+        problem121.run(exercise_121_solution, menu)
+    elif option == 122:
+        problem122 = EXERCISE(EXERCISE_122_NAME)
+        problem122.run(exercise_122_solution, menu)
+    elif option == 123:
+        problem123 = EXERCISE(EXERCISE_123_NAME)
+        problem123.run(exercise_123_solution, menu)
+    elif option == 124:
+        problem124 = EXERCISE(EXERCISE_124_NAME)
+        problem124.run(exercise_124_solution, menu)
+    elif option == 125:
+        problem125 = EXERCISE(EXERCISE_125_NAME)
+        problem125.run(exercise_125_solution, menu)
+    elif option == 126:
+        problem126 = EXERCISE(EXERCISE_126_NAME)
+        problem126.run(exercise_126_solution, menu)
+    elif option == 127:
+        problem127 = EXERCISE(EXERCISE_127_NAME)
+        problem127.run(exercise_127_solution, menu)
+    elif option == 128:
+        problem128 = EXERCISE(EXERCISE_128_NAME)
+        problem128.run(exercise_128_solution, menu)
+    elif option == 129:
+        problem129 = EXERCISE(EXERCISE_129_NAME)
+        problem129.run(exercise_129_solution, menu)
+    elif option == 130:
+        problem130 = EXERCISE(EXERCISE_130_NAME)
+        problem130.run(exercise_130_solution, menu)
+    elif option == 131:
+        problem131 = EXERCISE(EXERCISE_131_NAME)
+        problem131.run(exercise_131_solution, menu)
+    elif option == 132:
+        problem132 = EXERCISE(EXERCISE_132_NAME)
+        problem132.run(exercise_132_solution, menu)
+    elif option == 133:
+        problem133 = EXERCISE(EXERCISE_133_NAME)
+        problem133.run(exercise_133_solution, menu)
+    elif option == 134:
+        problem134 = EXERCISE(EXERCISE_134_NAME)
+        problem134.run(exercise_134_solution, menu)
+    elif option == 135:
+        problem135 = EXERCISE(EXERCISE_135_NAME)
+        problem135.run(exercise_135_solution, menu)
+    else:
+        exit()
+
+
+def exercise_110_solution():
+    return print("Exercise body")
+
+
+def exercise_111_solution():
+    return print("Exercise body")
+
+
+def exercise_112_solution():
+    return print("Exercise body")
+
+
+def exercise_113_solution():
+    return print("Exercise body")
+
+
+def exercise_114_solution():
+    return print("Exercise body")
+
+
+def exercise_115_solution():
+    return print("Exercise body")
+
+
+def exercise_116_solution():
+    return print("Exercise body")
+
+
+def exercise_117_solution():
+    return print("Exercise body")
+
+
+def exercise_118_solution():
+    return print("Exercise body")
+
+
+def exercise_119_solution():
+    return print("Exercise body")
+
+
+def exercise_120_solution():
+    return print("Exercise body")
+
+
+def exercise_121_solution():
+    return print("Exercise body")
+
+
+def exercise_122_solution():
+    return print("Exercise body")
+
+
+def exercise_123_solution():
+    return print("Exercise body")
+
+
+def exercise_124_solution():
+    return print("Exercise body")
+
+
+def exercise_125_solution():
+    return print("Exercise body")
+
+
+def exercise_126_solution():
+    return print("Exercise body")
+
+
+def exercise_127_solution():
+    return print("Exercise body")
+
+
+def exercise_128_solution():
+    return print("Exercise body")
+
+
+def exercise_129_solution():
+    return print("Exercise body")
+
+
+def exercise_130_solution():
+    return print("Exercise body")
+
+
+def exercise_131_solution():
+    return print("Exercise body")
+
+
+def exercise_132_solution():
+    return print("Exercise body")
+
+
+def exercise_133_solution():
+    return print("Exercise body")
+
+
+def exercise_134_solution():
+    return print("Exercise body")
+
+
+def exercise_135_solution():
+    return print("Exercise body")
