@@ -747,7 +747,21 @@ def converter(initial_number, initial_base, new_base):
 
 
 def exercise_106_solution():
-    return print("Exercise body")
+    year = int(input("Enter a year: "))
+    month = int(input("Enter a month number: "))
+    while not (1 <= month <= 12):
+        month = int(input("Please, enter the correct month number (1 to 12): "))
+    n = days_by_month(month, year)
+    return print(f"The number of days in this month is {n}.")
+
+
+def days_by_month(month, year):
+    days_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    leap = leap_year(year)
+    if leap:
+        days_in_month[1] = 29
+    n = month - 1
+    return days_in_month[n]
 
 
 def exercise_107_solution():
