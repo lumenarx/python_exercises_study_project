@@ -765,7 +765,22 @@ def days_by_month(month, year):
 
 
 def exercise_107_solution():
-    return print("Exercise body")
+    number_1 = int(input("Enter the first integer: "))
+    number_2 = int(input("Enter the second integer: "))
+    return print(reduce_fraction(number_1, number_2))
+
+
+def reduce_fraction(numerator, denominator):
+    if numerator > denominator:
+        divisor = numerator
+    else:
+        divisor = denominator
+    while numerator % divisor != 0 or denominator % divisor != 0:
+        divisor -= 1
+    new_numerator = numerator // divisor
+    new_denominator = denominator // divisor
+    result = "The reduced fraction is %d / %d" % (new_numerator, new_denominator)
+    return result
 
 
 def exercise_108_solution():
