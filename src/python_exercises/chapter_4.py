@@ -87,7 +87,7 @@ EXERCISE_109_NAME = (STMP_1 + "%s" % exercise_name[109])
 def menu():
     """Creating chapter's 4 menu"""
     print("[-----------] Menu [-----------] ")
-    print("[111] COPYRIGHT ")
+    print("[1111] COPYRIGHT ")
     print("[85] %s" % exercise_name[85])
     print("[86] %s" % exercise_name[86])
     print("[87] %s" % exercise_name[87])
@@ -115,7 +115,7 @@ def menu():
     print("[109] %s" % exercise_name[109])
     print("[0] Exit to the main menu")
     option = int(input("Enter the number of an exercise: "))
-    if option == 111:
+    if option == 1111:
         print(COPYRIGHT)
     elif option == 0:
         __main__.menu()
@@ -784,7 +784,50 @@ def reduce_fraction(numerator, denominator):
 
 
 def exercise_108_solution():
-    return print("Exercise body")
+    quantity = int(input("Enter the number of units: "))
+    measure = int(input("Enter the unit of measure [1 - cup, 2 - tablespoon, 3 - teaspoon]: "))
+    while not (measure == 1 or measure == 2 or measure == 3):
+        measure = int(input("Enter the unit of measure [1 - cup, 2 - tablespoon, 3 - teaspoon]: "))
+    return print(imperial_volume(quantity, measure))
+
+
+def imperial_volume(quantity, measure):
+    teaspoons = 0
+    tablespoons = 0
+    cups = 0
+    result = ""
+    if measure == 1:
+        cups = quantity
+    if measure == 2:
+        if quantity >= 16:
+            cups = quantity // 16
+            tablespoons = quantity % 16
+    if measure == 3:
+        if quantity >= 3:
+            tablespoons = quantity // 3
+            teaspoons = quantity % 3
+        if tablespoons >= 16:
+            cups = tablespoons // 16
+            tablespoons = tablespoons % 16
+    if cups > 1:
+        text_cups = "cups"
+    else:
+        text_cups = "cup"
+    if tablespoons > 1:
+        text_tablespoons = "tablespoons"
+    else:
+        text_tablespoons = "tablespoon"
+    if teaspoons > 1:
+        text_teaspoons = "teaspoons"
+    else:
+        text_teaspoons = "teaspoon"
+    if cups > 0:
+        result += "%d %s " % (cups, text_cups)
+    if tablespoons > 0:
+        result += "%d %s " % (tablespoons, text_tablespoons)
+    if teaspoons > 0:
+        result += "%d %s " % (teaspoons, text_teaspoons)
+    return result
 
 
 def exercise_109_solution():
