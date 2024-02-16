@@ -831,4 +831,39 @@ def imperial_volume(quantity, measure):
 
 
 def exercise_109_solution():
-    return print("Exercise body")
+    month = int(input("Enter a month number: "))
+    day = int(input("Enter a day: "))
+    year = int(input("Enter a year: "))
+    if magic_date(day, month, year):
+        print(f"{month}.{day}.{year} is a magic date.")
+    else:
+        print(f"{month}.{day}.{year} is NOT a magic date.")
+    magic_list = int(input("Do you want to see the list of magic dates in XX century? [1 = Yes, 0 - No]: "))
+    if magic_list == 1:
+        arr1 = []
+        k = 0
+        for i in range(1, 13):
+            for j in range(1, 32):
+                result = j * i
+                year = 1900 + result
+                if magic_date(j, i, year) is True:
+                    arr1.insert(k, [j, i, year])
+                    k += 1
+        n = len(arr1)
+        k = 1
+        for i in range(n):
+            dd = arr1[i][0]
+            mm = arr1[i][1]
+            yy = arr1[i][2]
+            print(f"The {i + 1} magic date is {mm}.{dd}.{yy}")
+    else:
+        return 1
+
+
+def magic_date(day, month, year):
+    remainder = year % 100
+    if day * month == remainder:
+        return True
+    else:
+        return False
+
