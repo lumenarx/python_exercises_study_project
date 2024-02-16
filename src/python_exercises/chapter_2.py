@@ -91,7 +91,7 @@ EXERCISE_62_NAME = (STMP_1 + "%s" % exercise_name[62])
 def menu():
     """Creating chapter's 1 menu"""
     print("[-----------] Menu [-----------] ")
-    print("[111] COPYRIGHT ")
+    print("[1111] COPYRIGHT ")
     print("[35] %s" % exercise_name[35])
     print("[36] %s" % exercise_name[36])
     print("[37] %s" % exercise_name[37])
@@ -122,7 +122,7 @@ def menu():
     print("[62] %s" % exercise_name[62])
     print("[0] Exit to the main menu")
     option = int(input("Enter the number of an exercise: "))
-    if option == 111:
+    if option == 1111:
         print(COPYRIGHT)
     elif option == 0:
         __main__.menu()
