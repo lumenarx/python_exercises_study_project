@@ -202,11 +202,31 @@ def menu():
 
 
 def exercise_110_solution():
-    return print("Exercise body")
+    data = []
+    line = ""
+    while line != 0:
+        line = int(input("Enter an integer: "))
+        if line != 0:
+            data.append(line)
+    data.sort()
+    n = len(data)
+    for i in range(n):
+        print(data[i])
+    return 1
 
 
 def exercise_111_solution():
-    return print("Exercise body")
+    data = []
+    line = ""
+    while line != 0:
+        line = int(input("Enter an integer: "))
+        if line != 0:
+            data.append(line)
+    data.sort(reverse=True)
+    n = len(data)
+    for i in range(n):
+        print(data[i])
+    return 1
 
 
 def exercise_112_solution():
