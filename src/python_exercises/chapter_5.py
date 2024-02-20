@@ -230,7 +230,26 @@ def exercise_111_solution():
 
 
 def exercise_112_solution():
-    return print("Exercise body")
+    data = []
+    line = ""
+    while line != 0:
+        line = int(input("Enter an integer: "))
+        if line != 0:
+            data.append(line)
+        else:
+            if len(data) < 4:
+                return 0
+    return print(remove_outliers(data))
+
+
+def remove_outliers(data):
+    data_copy = data
+    data_copy.sort()
+    first = data_copy[0]
+    last = data_copy[len(data) - 1]
+    data_copy.remove(first)
+    data_copy.remove(last)
+    return data_copy
 
 
 def exercise_113_solution():
