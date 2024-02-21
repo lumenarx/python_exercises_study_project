@@ -253,7 +253,40 @@ def remove_outliers(data):
 
 
 def exercise_113_solution():
-    return print("Exercise body")
+    data = []
+    line = " "
+    while line != "":
+        line = input("Enter a word: ")
+        if line != "":
+            data.append(line)
+    remove_duplicate(data)
+    return print(data)
+
+
+def remove_duplicate(data):
+    k = 0
+    g = 0
+    n = len(data)
+    while g != n - 1:
+        if g + 1 < n - 1:
+            k = g + 1
+        while k != len(data):
+            if data[g] == data[k]:
+                data.pop(k)
+                if data[g] != data[k]:
+                    g += 1
+                    break
+                else:
+                    break
+            else:
+                if data[g] != data[k]:
+                    g += 1
+                    break
+                else:
+                    break
+        n = len(data)
+        print(data)
+    return data
 
 
 def exercise_114_solution():
