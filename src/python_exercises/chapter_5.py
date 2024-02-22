@@ -290,7 +290,27 @@ def remove_duplicate(data):
 
 
 def exercise_114_solution():
-    return print("Exercise body")
+    data = []
+    negative = []
+    zero = []
+    positive = []
+    line = " "
+    while line != "":
+        line = input("Enter an integer: ")
+        if line != "":
+            if line[0] == "-":
+                negative.append(line)
+            elif line[0] == "0":
+                zero.append(line)
+            else:
+                positive.append(line)
+    for i in range(len(negative)):
+        data.append(negative[i])
+    for i in range(len(zero)):
+        data.append(zero[i])
+    for i in range(len(positive)):
+        data.append(positive[i])
+    print(data)
 
 
 def exercise_115_solution():
