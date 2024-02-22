@@ -259,8 +259,8 @@ def exercise_113_solution():
         line = input("Enter a word: ")
         if line != "":
             data.append(line)
-    remove_duplicate(data)
-    return print(data)
+    data.sort()
+    return print(remove_duplicate(data))
 
 
 def remove_duplicate(data):
@@ -272,20 +272,20 @@ def remove_duplicate(data):
             k = g + 1
         while k != len(data):
             if data[g] == data[k]:
-                data.pop(k)
                 if data[g] != data[k]:
                     g += 1
                     break
                 else:
+                    data.pop(k)
                     break
             else:
                 if data[g] != data[k]:
                     g += 1
                     break
                 else:
+                    data.pop(k)
                     break
         n = len(data)
-        print(data)
     return data
 
 
