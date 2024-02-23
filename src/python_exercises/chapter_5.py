@@ -259,8 +259,8 @@ def exercise_113_solution():
         line = input("Enter a word: ")
         if line != "":
             data.append(line)
-    remove_duplicate(data)
-    return print(data)
+    data.sort()
+    return print(remove_duplicate(data))
 
 
 def remove_duplicate(data):
@@ -272,20 +272,20 @@ def remove_duplicate(data):
             k = g + 1
         while k != len(data):
             if data[g] == data[k]:
-                data.pop(k)
                 if data[g] != data[k]:
                     g += 1
                     break
                 else:
+                    data.pop(k)
                     break
             else:
                 if data[g] != data[k]:
                     g += 1
                     break
                 else:
+                    data.pop(k)
                     break
         n = len(data)
-        print(data)
     return data
 
 
@@ -314,7 +314,18 @@ def exercise_114_solution():
 
 
 def exercise_115_solution():
-    return print("Exercise body")
+    number = int(input("Enter an integer: "))
+    return print(proper_divisors(number))
+
+
+def proper_divisors(number):
+    data = []
+    d = 1
+    while d < number:
+        if number % d == 0:
+            data.append(d)
+        d += 1
+    return data
 
 
 def exercise_116_solution():
