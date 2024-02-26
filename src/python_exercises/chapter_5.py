@@ -329,7 +329,22 @@ def proper_divisors(number):
 
 
 def exercise_116_solution():
-    return print("Exercise body")
+    for g in range(1, 10001):
+        if perfect_number(g) is True:
+            print(f"{g} is a perfect number.")
+    return 1
+
+
+def perfect_number(number):
+    data = proper_divisors(number)
+    n = len(data)
+    sum_data = 0
+    for i in range(n):
+        sum_data += int(data[i])
+    if sum_data == number:
+        return True
+    else:
+        return False
 
 
 def exercise_117_solution():
