@@ -348,7 +348,22 @@ def perfect_number(number):
 
 
 def exercise_117_solution():
-    return print("Exercise body")
+    line = input("Enter a text: ")
+    return print(only_words(line))
+
+
+def only_words(line):
+    line_copy = ""
+    n = len(line)
+    for i in range(n):
+        if (i != n - 1 and line[i] == "'" and line[i + 1] != " " and line[i + 1] != "'") or (line[i] == "'" and i == n - 1):
+            line_copy += line[i]
+        elif line[i] != "'" and line[i] != "!" and line[i] != "?" and line[i] != "." \
+                and line[i] != "," and line[i] != ":" and line[i] != ";" \
+                and line[i] != "-" and line[i] != "_" and line[i] != "+":
+            line_copy += line[i]
+    words = line_copy.split()
+    return words
 
 
 def exercise_118_solution():
