@@ -357,17 +357,41 @@ def only_words(line):
     n = len(line)
     for i in range(n):
         if (i != n - 1 and line[i] == "'" and line[i + 1] != " " and line[i + 1] != "'") or (line[i] == "'" and i == n - 1):
-            line_copy += line[i]
+            line_copy += line[i].lower()
         elif line[i] != "'" and line[i] != "!" and line[i] != "?" and line[i] != "." \
                 and line[i] != "," and line[i] != ":" and line[i] != ";" \
                 and line[i] != "-" and line[i] != "_" and line[i] != "+":
-            line_copy += line[i]
+            line_copy += line[i].lower()
     words = line_copy.split()
     return words
 
 
 def exercise_118_solution():
-    return print("Exercise body")
+    # line1 = "Herb the sage eats sage, the herb"
+    # line2 = "Information school graduate seeks graduate school information"
+    # line3 = "This is a wonderful day today."
+    line = input("Enter a text: ")
+    while line.strip() == "":
+        line = input("Please, enter a text: ")
+    return word_palindromes(line)
+
+
+def word_palindromes(sentence):
+    data = only_words(sentence)
+    if len(data) % 2 == 1:
+        n = len(data) // 2
+        for i in range(n):
+            end = len(data) - (i + 1)
+            if data[i] == data[end] and i == n - 1:
+                print("This is a palindrome. Wow!")
+            elif data[i] == data[end]:
+                print("This could be a palindrome. Checking next...")
+            else:
+                print("This is not a palindrome.")
+                return 0
+    else:
+        print("This is not a palindrome.")
+        return 0
 
 
 def exercise_119_solution():
