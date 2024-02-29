@@ -356,7 +356,8 @@ def only_words(line):
     line_copy = ""
     n = len(line)
     for i in range(n):
-        if (i != n - 1 and line[i] == "'" and line[i + 1] != " " and line[i + 1] != "'") or (line[i] == "'" and i == n - 1):
+        if (i != n - 1 and line[i] == "'" and line[i + 1] != " " and line[i + 1] != "'") or (
+                line[i] == "'" and i == n - 1):
             line_copy += line[i].lower()
         elif line[i] != "'" and line[i] != "!" and line[i] != "?" and line[i] != "." \
                 and line[i] != "," and line[i] != ":" and line[i] != ";" \
@@ -395,7 +396,47 @@ def word_palindromes(sentence):
 
 
 def exercise_119_solution():
-    return print("Exercise body")
+    numbers = []
+    line = 0
+    temp = 0
+    while line != "":
+        if line != "":
+            try:
+                line = input("Enter an integer: ")
+                temp = int(line)
+            except:
+                print("This is not an integer. Please, try again.")
+            if isinstance(temp, int) is True:
+                numbers.append(temp)
+        else:
+            break
+    average = 0
+    n = len(numbers)
+    for i in numbers:
+        average += i
+        if i == n - 1:
+            average /= n
+    print(f"The average value is: {average}")
+    return below_and_above(average, numbers)
+
+
+def below_and_above(average, data):
+    data.sort()
+    below_avg, equal_avg, above_avg = [], [], []
+    for i in data:
+        if i < average:
+            below_avg.append(i)
+        elif i == average:
+            equal_avg.append(i)
+        elif i > average:
+            above_avg.append(i)
+    if len(below_avg) > 0:
+        print("Below average values:\n", below_avg)
+    if len(equal_avg) > 0:
+        print("Average values:\n", equal_avg)
+    if len(above_avg) > 0:
+        print("Above average values:\n", above_avg)
+    return print("Your data is processed.")
 
 
 def exercise_120_solution():
