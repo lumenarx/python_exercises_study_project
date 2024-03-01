@@ -440,7 +440,34 @@ def below_and_above(average, data):
 
 
 def exercise_120_solution():
-    return print("Exercise body")
+    my_list = []
+    line = " "
+    while line != "":
+        line = input("Enter a word or number: ")
+        if line.strip() != "":
+            my_list.append(line)
+    return format_list(my_list)
+
+
+def format_list(data):
+    line = ""
+    n = len(data)
+    for i in range(n):
+        if i == 0 and n != 2 and n != 1:
+            line += data[i] + ", "
+        elif i == 0 and n == 1:
+            line += data[i]
+        elif i == 0 and n == 2:
+            line += data[i] + " and "
+        elif i == 1 and n == 2:
+            line += data[i]
+        elif i == n - 2 and n != 2:
+            line += data[i] + " and "
+        elif i == n - 1 and n != 2:
+            line += data[i]
+        elif i != 0 and i != n - 1 and i != n - 2 and n != 2:
+            line += data[i] + ", "
+    return print(line)
 
 
 def exercise_121_solution():
