@@ -1,3 +1,5 @@
+import random
+
 from exercises import EXERCISE
 import __main__
 
@@ -471,7 +473,29 @@ def format_list(data):
 
 
 def exercise_121_solution():
-    return print("Exercise body")
+    data = []
+    while len(data) < 6:
+        if len(data) == 0:
+            number = random.randrange(0, 49)
+            if number != 0 and len(data) == 0:
+                data.append(number)
+        else:
+            flag = False
+            number = random.randrange(0, 49)
+            for i in range(len(data)):
+                if data[i] == number:
+                    flag = True
+                if i == len(data) - 1 and flag is False:
+                    data.append(number)
+    data.sort()
+    result = "The winning ticket contains: "
+    for i in range(len(data)):
+        result += str(data[i])
+        if i == len(data) - 1:
+            result += "."
+        else:
+            result += ", "
+    return print(result)
 
 
 def exercise_122_solution():
