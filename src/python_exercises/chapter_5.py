@@ -499,7 +499,49 @@ def exercise_121_solution():
 
 
 def exercise_122_solution():
-    return print("Exercise body")
+    text = "john young meets bill and eats apple"
+    print(text)
+    return print(pig_latin(text))
+
+
+def pig_latin(text):
+    data = only_words(text)
+    result = ""
+    n = len(data)
+    for i in range(n):
+        if check_vowel(data[i][0]) is True and data[i][0] != "y":
+            data[i] += "way"
+        else:
+            j = 0
+            end = ""
+            while j < len(data[i]):
+                if check_vowel(data[i][j]) is True:
+                    data[i] += end
+                    last = len(data[i]) - 1
+                    if data[i][last] == "a":
+                        data[i] += "y"
+                    else:
+                        data[i] += "ay"
+                    break
+                else:
+                    end += data[i][j]
+                    data[i] = remove_char(data[i], j)
+        result += data[i] + " "
+    return result
+
+
+def remove_char(text, i):
+    t = bytearray(text, 'utf-8')
+    del t[i]
+    return t.decode()
+
+
+def check_vowel(letter):
+    if letter == "a" or letter == "o" or letter == "i" \
+            or letter == "e" or letter == "u" or letter == "y":
+        return True
+    else:
+        return False
 
 
 def exercise_123_solution():
