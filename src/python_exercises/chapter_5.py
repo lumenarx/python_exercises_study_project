@@ -1,6 +1,5 @@
-import itertools
 import random
-from itertools import product
+import time
 from exercises import EXERCISE
 import __main__
 
@@ -537,91 +536,12 @@ def remove_char(text, i):
     return t.decode()
 
 
-def replace_with_capital(text, i):
-    new_word = ""
-    new_word += text[i]
-    t = bytearray(text, 'utf-8')
-    del t[i]
-    new_word += t.decode()
-    return new_word
-
-
 def check_vowel(letter):
     if letter == "a" or letter == "o" or letter == "i" \
             or letter == "e" or letter == "u" or letter == "y":
         return True
     else:
         return False
-
-
-def check_punctuation(character):
-    if character == "'" or character == "!" or character == "?" or character == "." \
-                or character == "," or character == ":" or character == ";" \
-                or character == "-" or character == "_" or character == "+":
-        return True
-    else:
-        return False
-
-
-def word_transformer(word):
-    capital = False
-    new_word = []
-    if check_punctuation(word) is False:
-        if check_vowel(word[0]) is True and word[0] != "y":
-            word += "way"
-        else:
-            j = 0
-            end = ""
-            while j < len(word):
-                if check_vowel(word[j]) is True:
-                    word += end
-                    print(5656, word[j])
-                    last = len(word) - 1
-                    if word[last] == "a":
-                        word += "y"
-                    else:
-                        word += "ay"
-                    break
-                else:
-                    if word[j].isupper():
-                        capital = True
-                    end += word[j].lower()
-                    word = remove_char(word, j)
-        for i in range(len(word)):
-            if capital and i == 0:
-                new_word += word[i].upper()
-            else:
-                new_word += word[i]
-    return new_word
-
-def check_word(word, word_list):
-    n = len(word_list)
-    flag = False
-    for i in range(n):
-        temp = ""
-        k = len(word_list[i])
-        for j in range(k):
-            temp += word_list[i][j].lower()
-            if word == temp:
-                flag = True
-    if flag:
-        return True
-    else:
-        return False
-
-
-def word_index(word, word_list):
-    result = ""
-    n = len(word_list)
-    for i in range(n):
-        temp = ""
-        k = len(word_list[i])
-        for j in range(k):
-            temp += word_list[i][j].lower()
-            if word == temp:
-                result = word_list[i]
-    return result
-
 
 
 def exercise_123_solution():
@@ -632,7 +552,6 @@ def exercise_123_solution():
 
 def pig_latin_enhanced(line):
     line_copy = ""
-    print(1, line)
     n = len(line)
     for i in range(n):
         # Adding a whole word with a hyphen
@@ -649,10 +568,7 @@ def pig_latin_enhanced(line):
                 line_copy += line[i]
             else:
                 line_copy += " " + line[i]
-            #print(line_copy)
-    #print(2, line_copy)
     data = line_copy.split()
-    #print(3, data)
     new_data = []
     result = ""
     n = len(data)
@@ -661,13 +577,13 @@ def pig_latin_enhanced(line):
         if check_punctuation(data[i]) is False:
             if check_vowel(data[i][0]) is True and data[i][0] != "y":
                 data[i] += "way"
+                new_data.append(data[i])
             else:
                 j = 0
                 end = ""
                 while j < len(data[i]):
                     if check_vowel(data[i][j]) is True:
                         data[i] += end
-                        print(5656, data[i][j])
                         last = len(data[i]) - 1
                         if data[i][last] == "a":
                             data[i] += "y"
@@ -681,37 +597,71 @@ def pig_latin_enhanced(line):
                                 new_word += data[i][k]
                             if k == len(data[i]) - 1:
                                 new_data.append(new_word)
-                                print(new_data)
                         break
                     else:
                         if data[i][j].isupper():
                             capital = True
                         end += data[i][j].lower()
                         data[i] = remove_char(data[i], j)
-            #print(data)
-            print(new_data)
-            print(data)
-            i = 0
-            print(new_data)
-            print(data)
-            if data[i + 1]:
-                if check_punctuation(data[i + 1]):
-                    if check_word(data[i], new_data):
-                        result += word_index(data[i], new_data)
-                        print(data[i], check_word(data[i], new_data), new_data[k])
-                    else:
-                        result += data[i]
-                else:
-                    if check_word(data[i], new_data):
-                        result += word_index(data[i], new_data)
-                    else:
-                        result += data[i] + " "
         else:
-            result += data[i] + " "
+            new_data.append(data[i])
+    n = len(new_data)
+    for i in range(n):
+        if i != n - 1:
+            if check_punctuation(new_data[i + 1]) and new_data[i + 1] != "-":
+                result += new_data[i]
+            else:
+                result += new_data[i] + " "
+        else:
+            result += new_data[i] + " "
     return result
 
 
+def replace_with_capital(text, i):
+    new_word = ""
+    new_word += text[i]
+    t = bytearray(text, 'utf-8')
+    del t[i]
+    new_word += t.decode()
+    return new_word
+
+
+def check_punctuation(character):
+    if character == "'" or character == "!" or character == "?" or character == "." \
+            or character == "," or character == ":" or character == ";" \
+            or character == "-" or character == "_" or character == "+":
+        return True
+    else:
+        return False
+
+
 def exercise_124_solution():
+    coordinates = '1'
+    data = []
+    while coordinates.strip() != '':
+        if coordinates.strip() != '':
+            coordinates = input('Enter x and y: ')
+            if len(coordinates.split(" ")) == 2:
+                data.append(coordinates.split(" "))
+            elif coordinates.strip() == '':
+                print('The input is finished...')
+            else:
+                print('Incorrect input')
+    n = len(data)
+    sum_x = 0
+    sum_y = 0
+    sum_xy = 0
+    sum_x_by_x = 0
+    for i in range(n):
+        sum_x += float(data[i][0])
+        sum_y += float(data[i][1])
+        sum_xy += float(data[i][0]) * float(data[i][1])
+        sum_x_by_x += float(data[i][0]) * float(data[i][0])
+    avg_x = sum_x / n
+    avg_y = sum_y / n
+    m = (sum_xy - ((sum_x * sum_y) / n)) / (sum_x_by_x - (sum_x * sum_x) / n)
+    b = avg_y - m * avg_x
+    print(f"A formula for the line of the best fit: y = {round(m, 2)}x + {round(b, 2)}")
     return print("Exercise body")
 
 
