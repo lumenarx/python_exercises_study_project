@@ -666,7 +666,35 @@ def exercise_124_solution():
 
 
 def exercise_125_solution():
-    return print("Exercise body")
+    deck = create_deck()
+    print("Deck created:", deck)
+    shuffle(deck)
+    return print("Deck sorted:", deck)
+
+
+def create_deck():
+    deck = []
+    suit = ['s', 'c', 'd', 'h']
+    value = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
+    card = ''
+    for i in range(13):
+        for j in range(4):
+            card += value[i] + suit[j]
+            deck.append(card)
+            card = ''
+    return deck
+
+
+def shuffle(deck):
+    n = len(deck)
+    k = random.randrange(3, 7)
+    for i in range(k):
+        for j in range(n):
+            temp = deck[j]
+            g = random.randrange(j, n)
+            deck[j] = deck[g]
+            deck[g] = temp
+    return deck
 
 
 def exercise_126_solution():
