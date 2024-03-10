@@ -1,5 +1,5 @@
 import random
-import time
+import chapter_4 as c4
 from exercises import EXERCISE
 import __main__
 
@@ -698,7 +698,29 @@ def shuffle(deck):
 
 
 def exercise_126_solution():
-    return print("Exercise body")
+    deck = create_deck()
+    shuffle(deck)
+    print(f"Initial deck ({len(deck)} cards):", deck)
+    hands = deal(3, 5, deck)
+    for i in range(len(hands)):
+        print(f"Hand {i + 1}:", hands[i])
+    return print(f"Remaining deck ({len(deck)} cards):", deck)
+
+
+def deal(players, cards, deck):
+    if players * cards > len(deck):
+        return print("You can't deal this deck.")
+    else:
+        hands = []
+        hand = []
+        for i in range(players):
+            for j in range(cards):
+                hand.append(deck[0])
+                deck.pop(0)
+                if j == cards - 1:
+                    hands.append(hand)
+                    hand = []
+    return hands
 
 
 def exercise_127_solution():
