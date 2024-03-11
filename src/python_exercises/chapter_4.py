@@ -428,17 +428,13 @@ def exercise_96_solution():
 
 def is_integer(string):
     line = str(string.strip(" "))
-    print(line)
     if len(line) > 1 and line.isdigit() is True:
-        print(line)
         return True
     elif len(line) > 1 and (line[0] == "+" or line[0] == "-"):
         line2 = str(line.strip("+- "))
         if len(line2) > 1 and line2.isdigit() is True:
-            print(line2)
             return True
     else:
-        print(line, line)
         return False
 
 
@@ -482,7 +478,6 @@ def prime_number(n):
         if table[d]:
             for i in range(d * d, n + 1, d):
                 table[i] = False
-                print(i, table[i])
         d += 1
     g = len(table) - 1
     if table[g]:
@@ -522,6 +517,7 @@ def exercise_101_solution():
     number = int(input("Enter a number of plates to generate: "))
     for i in range(number):
         print(generate_plate())
+    return 1
 
 
 def generate_plate():
