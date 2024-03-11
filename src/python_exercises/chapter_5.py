@@ -1,5 +1,4 @@
 import random
-import chapter_4 as c4
 from exercises import EXERCISE
 import __main__
 
@@ -724,7 +723,66 @@ def deal(players, cards, deck):
 
 
 def exercise_127_solution():
-    return print("Exercise body")
+    data = []
+    line = " "
+    print("To stop the input press the <Enter>")
+    while line != "":
+        try:
+            line = input("Enter a number: ")
+            if line.isalpha() is False and line != "":
+                if float(line) % 1 == 0:
+                    data.append(int(line))
+                else:
+                    data.append(float(line))
+        except:
+            print("You stopped the input...")
+            break
+    print(data)
+    if check_list(data):
+        return print("The list is already sorted.")
+    elif len(data) == 0:
+        return 1
+    elif len(data) == 1:
+        return 1
+    else:
+        return print("This is an unsorted list of integers")
+
+
+def check_list(data):
+    if len(data) == 0:
+        return print("This is an empty list.")
+    elif len(data) == 1:
+        return print("The list contains only one element.")
+    else:
+        ascending = False
+        descending = False
+        n = len(data)
+        k = 1
+        # Check if sorted as ascending
+        while k < n:
+            if k < n:
+                if data[k - 1] > data[k]:
+                    break
+                else:
+                    k += 1
+        # Check if sorted as descending
+        d = 1
+        while d < n:
+            if d < n:
+                if data[d - 1] < data[d]:
+                    break
+                else:
+                    d += 1
+        if k == n:
+            ascending = True
+            print("This list has an ascending order...")
+        elif d == n:
+            descending = True
+            print("This list has an descending order...")
+        if ascending or descending:
+            return True
+        else:
+            return False
 
 
 def exercise_128_solution():
