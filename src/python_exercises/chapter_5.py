@@ -786,7 +786,26 @@ def check_list(data):
 
 
 def exercise_128_solution():
-    return print("Exercise body")
+    min_n = 10
+    max_n = 20
+    list1 = [5, 8, 2, 13, 10, 18, 19, 20, 21, 27, 28, 29, 56]
+    list2 = [1.53, 456, 12.65, 40, 10.26, 16, 99]
+    list3 = [98, 14.43, 14, 17.18, 20, 11.11, 15, 12.01]
+    print(list1)
+    print(f"Elements greater or equal then {min_n} and less than {max_n}:", count_range(min_n, max_n, list1))
+    print(list2)
+    print(f"Elements greater or equal then {min_n} and less than {max_n}:", count_range(min_n, max_n, list2))
+    print(list3)
+    print(f"Elements greater or equal then {min_n} and less than {max_n}:", count_range(min_n, max_n, list3))
+    return 1
+
+
+def count_range(min_n, max_n, data):
+    count = 0
+    for i in range(len(data)):
+        if min_n <= data[i] < max_n:
+            count += 1
+    return count
 
 
 def exercise_129_solution():
