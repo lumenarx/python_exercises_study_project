@@ -809,7 +809,41 @@ def count_range(min_n, max_n, data):
 
 
 def exercise_129_solution():
-    return print("Exercise body")
+    expression = "78 * (9 / 5) + 48 - (32 * 4)"
+    return print(string_to_token(expression))
+
+
+def string_to_token(line):
+    new_line = ''
+    for i in range(len(line)):
+        if line[i] != " ":
+            new_line += line[i]
+    print(new_line)
+    token = ""
+    tokens = []
+    for i in range(len(new_line)):
+        if (check_parenthesis(new_line[i]) or check_operator(new_line[i])) or i == len(new_line) - 1:
+            if token != '':
+                tokens.append(token)
+                token = ''
+            tokens.append(new_line[i])
+        else:
+            token += new_line[i]
+    return tokens
+
+
+def check_operator(line):
+    if line[0] == '+' or line[0] == '-' or line[0] == '*' or line[0] == '/':
+        return True
+    else:
+        return False
+
+
+def check_parenthesis(line):
+    if line[0] == '(' or line[0] == ')':
+        return True
+    else:
+        return False
 
 
 def exercise_130_solution():
