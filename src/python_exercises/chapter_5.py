@@ -847,7 +847,31 @@ def check_parenthesis(line):
 
 
 def exercise_130_solution():
-    return print("Exercise body")
+    expression = "78 * (9 / 5) + 48 - (32 * - 4)"
+    print(string_to_token(expression))
+    expression2 = string_to_token(expression)
+    print(operators(expression2))
+    expression3 = "(  5 +   8) * ( 5 - 4 )"
+    print(string_to_token(expression3))
+    expression4 = string_to_token(expression3)
+    print(operators(expression4))
+
+
+def operators(tokenized_expression):
+    for i in range(len(tokenized_expression)):
+        # Processing the first index case
+        if i == 0 and (tokenized_expression[i] == "+" or tokenized_expression[i] == "-"):
+            tokenized_expression[i] = "u" + tokenized_expression[i]
+        # Negative number case
+        elif (tokenized_expression[i - 1] == "/" or tokenized_expression[i - 1] == "*"
+              or (i < len(tokenized_expression) - 2 and tokenized_expression[i - 1].isnumeric() is True
+                  and tokenized_expression[i + 1].isnumeric() is True)) \
+                and (tokenized_expression[i] == '-' or tokenized_expression[i] == '+'):
+            tokenized_expression[i] = 'u' + tokenized_expression[i]
+        # Processing the brackets
+        elif i > 1 and (tokenized_expression[i] == '(' or tokenized_expression[i] == ')'):
+            pass
+    return tokenized_expression
 
 
 def exercise_131_solution():
