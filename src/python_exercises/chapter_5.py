@@ -941,7 +941,38 @@ def precedence(line):
 
 
 def exercise_132_solution():
-    return print("Exercise body")
+    expression = ['5', '8', 'u+', '5', '4', 'u-', '*']
+    return print(evaluate_postfix(expression))
+
+
+def evaluate_postfix(postfix):
+    values = []
+    for i in postfix:
+        print(values, i)
+        if check_integer(i) is True:
+            values.append(int(i))
+        elif i == "u-":
+            n = '-' + str(values.pop())
+            values.append(int(n))
+        elif check_operator(i) is True or check_unary(i) is True:
+            right = values.pop()
+            left = values.pop()
+            result = compute(left, right, i)
+            values.append(result)
+    return values[0]
+
+
+def compute(left, right, operator):
+    result = 0
+    if operator == "/":
+        result = left / right
+    elif operator == "*":
+        result = left * right
+    elif operator == "+" or operator == "u+":
+        result = left + right
+    elif operator == "-" or operator == "u-":
+        result = left - right
+    return result
 
 
 def exercise_133_solution():
