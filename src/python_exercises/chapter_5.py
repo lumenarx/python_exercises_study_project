@@ -875,7 +875,69 @@ def operators(tokenized_expression):
 
 
 def exercise_131_solution():
-    return print("Exercise body")
+    expression = ["78 * (9 / 5) + 48 - (32 * 4)",
+                  "(  5 +   8) * ( 5 - 4 )"]
+    for i in range(2):
+        print(string_to_token(expression[i]))
+        temp1 = string_to_token(expression[i])
+        temp2 = operators(temp1)
+        print(temp2)
+        temp3 = infix_to_postfix(temp2)
+        print(temp3)
+    return 1
+
+
+def infix_to_postfix(infix):
+    operator = []
+    postfix = []
+    for i in infix:
+        if check_integer(i) is True:
+            postfix.append(i)
+        if check_operator(i) is True or check_unary(i) is True:
+            while operator and operator[len(operator) - 1] != '(' \
+                    and precedence(i) < precedence(operator[len(operator) - 1]):
+                postfix.append(operator.pop())
+            operator.append(i)
+        if i == "(":
+            operator.append(i)
+        if i == ")":
+            while operator[len(operator) - 1] != '(':
+                postfix.append(operator.pop())
+            operator.remove("(")
+    while operator:
+        postfix.append(operator.pop())
+    return postfix
+
+
+def check_unary(line):
+    if line == 'u+' or line == 'u-':
+        return True
+    else:
+        return False
+
+
+def check_integer(line):
+    try:
+        n = int(line)
+        if n:
+            return True
+    except:
+        return False
+
+
+def precedence(line):
+    n = len(line)
+    for i in range(n):
+        if line[i] == "^":
+            return 1
+        elif line[i] == "u+" or line[i] == "u-":
+            return 2
+        elif line[i] == "*" or line[i] == "/":
+            return 3
+        elif line[i] == "+" or line[i] == "+":
+            return 4
+    else:
+        return -1
 
 
 def exercise_132_solution():
