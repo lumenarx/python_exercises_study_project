@@ -976,7 +976,52 @@ def compute(left, right, operator):
 
 
 def exercise_133_solution():
-    return print("Exercise body")
+    list0 = [1, 2, 5, 6, 7, 9, 12]
+    list1 = [99]
+    list2 = [2, 5, 6]
+    list3 = [12]
+    print("Initial set of numbers: ", list0)
+    print("List 1: ", list1)
+    print("List 2: ", list2)
+    print("List 3: ", list3)
+    if is_sublist(list0, list1):
+        print("List 1 is part of the set")
+    if is_sublist(list0, list2):
+        print("List 2 is part of the set")
+    if is_sublist(list0, list3):
+        print("List 3 is part of the set")
+    return 1
+
+
+def is_sublist(larger, smaller):
+    k = " "
+    if len(smaller) == 0:
+        return True
+    elif len(smaller) == 1:
+        for i in larger:
+            if smaller[0] == i:
+                return True
+        return False
+    else:
+        for i in range(len(larger)):
+            if smaller[0] == larger[i]:
+                k = int(i)
+                break
+        if k != " ":
+            i = 0
+            n = len(smaller)
+            while i < n:
+                if smaller[i] == larger[k]:
+                    i += 1
+                    k += 1
+                else:
+                    break
+            if i == n:
+                return True
+            else:
+                return False
+        else:
+            return False
 
 
 def exercise_134_solution():
