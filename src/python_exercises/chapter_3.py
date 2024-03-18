@@ -1,8 +1,8 @@
 from exercises import EXERCISE
 import __main__
-import math
-import numpy
-import random
+from math import sqrt, floor
+from numpy import average
+from random import randrange
 """
 Loading the EXERCISE class that is being used 
 to combine an exercise name and a solution into one
@@ -251,7 +251,7 @@ def exercise_67_solution():
     while str(x) != "":
         x = input("Enter the next x-coordinate (blank to quit): ")
         if x == "":
-            perimeter += math.sqrt(
+            perimeter += sqrt(
                 (coordinates[k][0] - coordinates[0][0]) ** 2 + (coordinates[k][1] - coordinates[0][1]) ** 2)
             break
         else:
@@ -259,7 +259,7 @@ def exercise_67_solution():
             y = float(input("Enter the next y-coordinate: "))
             k += 1
             coordinates.append([x, y])
-            perimeter += math.sqrt(
+            perimeter += sqrt(
                 (coordinates[k][0] - coordinates[k - 1][0]) ** 2 + (coordinates[k][1] - coordinates[k - 1][1]) ** 2)
     return print(f"The perimeter of that polygon is {perimeter}")
 
@@ -502,7 +502,7 @@ def exercise_78_solution():
             n = len(sequence) - 1
             if sequence[n] != 1:
                 if sequence[n] % 2 == 0:
-                    element = math.floor(sequence[n] / 2)
+                    element = floor(sequence[n] / 2)
                     sequence.append(element)
                 else:
                     element = sequence[n] * 3 + 1
@@ -534,7 +534,7 @@ def exercise_80_solution():
     while factor <= n:
         if n % factor == 0:
             pf.append(factor)
-            n = math.floor(n / factor)
+            n = floor(n / factor)
         else:
             factor += 1
     return print(f"The prime factors: {list(pf)}")
@@ -567,11 +567,11 @@ def exercise_82_solution():
 
 
 def exercise_83_solution():
-    n = random.randrange(1, 100)
+    n = randrange(1, 100)
     max_number = 0
     k = 0
     for i in range(n):
-        number = random.randrange(1, 101)
+        number = randrange(1, 101)
         print(number)
         if number > max_number:
             max_number = number
@@ -588,7 +588,7 @@ def exercise_84_solution():
     counter = 0
     for i in range(0, 10):
         while counter != 3:
-            n = random.randrange(0, 2)
+            n = randrange(0, 2)
             result += coin[n]
             if counter == 0:
                 counter += 1
@@ -605,5 +605,5 @@ def exercise_84_solution():
                 else:
                     counter = 0
         print(f"{result_list[i]} ({flips[i]} flip(s))")
-    avg = numpy.average(flips)
+    avg = average(flips)
     return print(f"On average, {avg} flips were needed.")

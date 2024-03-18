@@ -1,6 +1,7 @@
 from exercises import EXERCISE
-import math
-import time
+from math import floor, sin, cos, acos, tan, sqrt, log10, radians, pi
+from time import asctime
+import __main__
 """
 Loading the EXERCISE class that is being used 
 to combine an exercise name and a solution into one
@@ -141,6 +142,8 @@ def menu():
     option = int(input("Enter the number of an exercise: "))
     if option == 1111:
         print(COPYRIGHT)
+    elif option == 0:
+        __main__.menu()
     elif option == 1:
         problem1 = EXERCISE(EXERCISE_1_NAME)
         problem1.run(exercise_1_solution, menu)
@@ -250,7 +253,7 @@ def exercise_1_solution():
     return (
         print("My name is %s" % name),
         print("My email might look like this one:\n"
-              "%s_the_best@mail.ru" % name.lower())
+              "%s_the_best@gmail.com" % name.lower())
     )
 
 
@@ -331,7 +334,7 @@ def exercise_10_solution():
     multiplication = a * b
     division = a / b
     reminder = a % b
-    logarithm = math.log10(a)
+    logarithm = log10(a)
     exponent = a ** b
     return print("Sum: %d\nDifference: %d\nProduct: %d \nQuotient: %.2f\nReminder a/b: %d\n"
                  "Tenth logarithm a: %.2f\nThe number a to the power b: %d"
@@ -346,12 +349,12 @@ def exercise_11_solution():
 
 
 def exercise_12_solution():
-    latitude_1 = math.radians(float(input("Enter the latitude of the first point: ")))
-    longitude_1 = math.radians(float(input("Enter the longitude of the first point: ")))
-    latitude_2 = math.radians(float(input("Enter the latitude of the second point: ")))
-    longitude_2 = math.radians(float(input("Enter the longitude of the second point: ")))
-    distance = 6371.01 * math.acos(
-        math.sin(latitude_1) * math.sin(latitude_2) + math.cos(latitude_1) * math.cos(latitude_2) * math.cos(
+    latitude_1 = radians(float(input("Enter the latitude of the first point: ")))
+    longitude_1 = radians(float(input("Enter the longitude of the first point: ")))
+    latitude_2 = radians(float(input("Enter the latitude of the second point: ")))
+    longitude_2 = radians(float(input("Enter the longitude of the second point: ")))
+    distance = 6371.01 * acos(
+        sin(latitude_1) * sin(latitude_2) + cos(latitude_1) * cos(latitude_2) * cos(
             longitude_1 - longitude_2))
     return print("The distance between the two point equals: %.2f" % distance)
     # Example: Warsaw (52.2297, 21.0122) to Berlin(52.5200, 13.4050)
@@ -397,8 +400,8 @@ def exercise_15_solution():
 
 def exercise_16_solution():
     r = float(input("Enter the radius: "))
-    area = math.pi * r ** 2
-    volume = 4 / 3 * math.pi * r ** 3
+    area = pi * r ** 2
+    volume = 4 / 3 * pi * r ** 3
     return print("The area of the circle is equal to: %.2f\nThe volume of the ball is equal to: %.2f" % (area, volume))
 
 
@@ -424,7 +427,7 @@ def exercise_18_solution():
     """Calculating the volume of the cylinder
     :return print: str - string format of calculated volume of the cylinder
     """
-    volume = math.pi * radius ** 2 * height
+    volume = pi * radius ** 2 * height
     return print("The volume of the cylinder is equal to: %.1f" % volume)
 
 
@@ -432,7 +435,7 @@ def exercise_19_solution():
     a = 9.8
     v = 0
     height = float(input("Enter the height in meters from which the object should be lowered: "))
-    vf = math.sqrt(v ** 2 + 2 * a * height)
+    vf = sqrt(v ** 2 + 2 * a * height)
     return print("The velocity of the object's contact with the ground is %.2f meters per second" % vf)
 
 
@@ -465,7 +468,7 @@ def exercise_22_solution():
 def exercise_23_solution():
     s = float(input("Enter the length of the side of the regular polygon: "))
     n = float(input("Enter the number of sides of a regular polygon: "))
-    area = (n * s) / 4 * math.tan(math.pi / n)
+    area = (n * s) / 4 * tan(pi / n)
     return print("The area of a regular polygon is: %f" % area)
 
 
@@ -499,23 +502,23 @@ def exercise_25_solution():
 
 
 def exercise_26_solution():
-    return print(time.asctime())
+    return print(asctime())
 
 
 def exercise_27_solution():
     year = int(input("Enter the year in which you want to find out the date of Easter: "))
     a = year % 19
-    b = math.floor(year / 100)
+    b = floor(year / 100)
     c = year % 100
-    d = math.floor(b / 4)
+    d = floor(b / 4)
     e = b % 4
-    f = math.floor((b + 8) / 25)
-    g = math.floor((b - f + 1) / 3)
+    f = floor((b + 8) / 25)
+    g = floor((b - f + 1) / 3)
     h = (19 * a + b - d - g + 15) % 30
-    i = math.floor(c / 4)
+    i = floor(c / 4)
     k = c % 4
     el = (32 + 2 * e + 2 * i - h - k) % 7
-    m = math.floor((a + 11 * h + 22 * el) / 451)
+    m = floor((a + 11 * h + 22 * el) / 451)
     month = (h + el + 7 * m + 114) / 31
     n = int(month) - 1
     day = ((h + 1 - 7 * m + 114) % 31) + 1
