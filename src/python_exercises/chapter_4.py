@@ -1,8 +1,8 @@
-import time
-import random
+from time import sleep
+from random import randrange
 from exercises import EXERCISE
 import __main__
-import math
+from math import sqrt
 
 """
 Loading the EXERCISE class that is being used 
@@ -201,7 +201,7 @@ def menu():
 def exercise_85_solution():
     a = float(input("Enter the first shorter side of a right triangle: "))
     b = float(input("Enter the first shorter side of a right triangle: "))
-    c = math.sqrt(a ** 2 + b ** 2)
+    c = sqrt(a ** 2 + b ** 2)
     return print(f"The hypotenuse equals {c}")
 
 
@@ -294,7 +294,7 @@ def exercise_90_solution():
     }
     for n in range(1, 13):
         present_list += presents[n]
-        time.sleep(0.80)
+        sleep(0.80)
         if n == 1:
             print(f"On the {ordinal[n]} day of Christmas\n"
                   f"my true love sent to me:\n"
@@ -506,9 +506,9 @@ def exercise_100_solution():
 
 def generate_password():
     password = ""
-    length = random.randrange(7, 11)
+    length = randrange(7, 11)
     for i in range(length):
-        symbol_ascii = random.randrange(33, 127)
+        symbol_ascii = randrange(33, 127)
         password += chr(symbol_ascii)
     return password
 
@@ -524,10 +524,10 @@ def generate_plate():
     plate = ""
     for i in range(7):
         if i <= 3:
-            n = random.randrange(0, 10)
+            n = randrange(0, 10)
             plate += str(n)
         else:
-            n = random.randrange(65, 91)
+            n = randrange(65, 91)
             plate += chr(n)
     return plate
 

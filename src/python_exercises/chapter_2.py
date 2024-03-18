@@ -1,7 +1,7 @@
 from exercises import EXERCISE
 import __main__
-import math
-import random
+from math import sqrt, floor
+from random import randrange
 """
 Loading the EXERCISE class that is being used 
 to combine an exercise name and a solution into one
@@ -510,8 +510,8 @@ def exercise_51_solution():
     c = int(input("Enter the coefficient c: "))
     d = (b**2) - 4 * a * c
     if d > 0:
-        x1 = ((-b) + math.sqrt(d)) / (2 * a)
-        x2 = ((-b) - math.sqrt(d)) / (2 * a)
+        x1 = ((-b) + sqrt(d)) / (2 * a)
+        x2 = ((-b) - sqrt(d)) / (2 * a)
         return print(d, "The equation %dx**2 + %dx + %d = 0 has two valid roots: \n%f\n%f" % (a, b, c, x1, x2))
     elif d == 0:
         x1 = (-b) / (2 * a)
@@ -714,7 +714,7 @@ def exercise_60_solution():
     while year < 0:
         year = int(input("Please, enter the correct year in your date: "))
     week_days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-    day_of_the_week = (year + math.floor((year - 1)/4) - math.floor((year-1)/100) + math.floor((year - 1) / 400)) % 7
+    day_of_the_week = (year + floor((year - 1)/4) - floor((year-1)/100) + floor((year - 1) / 400)) % 7
     if day_of_the_week == 1:
         return print("The 1st of January is <%s> in <%d>" % (week_days[0], year))
     elif day_of_the_week == 2:
@@ -807,7 +807,7 @@ def exercise_62_solution():
                              "[BET] Enter the number where you want to place a bet: "))
             while half != 1 and half != 2 and half != 0:
                 half = int(input("[BET] Please, enter the correct number where you want to place a bet (1 or 2): "))
-    result = random.randrange(0, 37)
+    result = randrange(0, 37)
     print(f"The spin resulted in {result}...")
     if result == 37:
         print(f"Pay 00")

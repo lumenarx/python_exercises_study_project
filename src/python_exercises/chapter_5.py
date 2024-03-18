@@ -1,4 +1,4 @@
-import random
+from random import randrange
 from exercises import EXERCISE
 import __main__
 
@@ -475,12 +475,12 @@ def exercise_121_solution():
     data = []
     while len(data) < 6:
         if len(data) == 0:
-            number = random.randrange(0, 49)
+            number = randrange(0, 49)
             if number != 0 and len(data) == 0:
                 data.append(number)
         else:
             flag = False
-            number = random.randrange(0, 49)
+            number = randrange(0, 49)
             for i in range(len(data)):
                 if data[i] == number:
                     flag = True
@@ -686,11 +686,11 @@ def create_deck():
 
 def shuffle(deck):
     n = len(deck)
-    k = random.randrange(3, 7)
+    k = randrange(3, 7)
     for i in range(k):
         for j in range(n):
             temp = deck[j]
-            g = random.randrange(j, n)
+            g = randrange(j, n)
             deck[j] = deck[g]
             deck[g] = temp
     return deck
@@ -1025,7 +1025,32 @@ def is_sublist(larger, smaller):
 
 
 def exercise_134_solution():
-    return print("Exercise body")
+    list0 = [0, 12, 45]
+    print("Initial list: ", list0)
+    return print(generate_sublist(list0))
+
+
+def generate_sublist(data):
+    sublist = []
+    temp = []
+    n = len(data)
+    sublist.append([])
+    for i in data:
+        temp.append(i)
+        sublist.append(temp)
+        temp = []
+    for i in range(n - 1):
+        for j in range(i, n):
+            temp.append(data[j])
+        sublist.append(temp)
+        temp = []
+    for i in range(n - 2, 0, -1):
+        for j in range(i, -1, -1):
+            temp.append(data[j])
+        temp.sort()
+        sublist.append(temp)
+        temp = []
+    return sublist
 
 
 def exercise_135_solution():
