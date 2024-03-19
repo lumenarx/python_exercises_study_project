@@ -1054,4 +1054,21 @@ def generate_sublist(data):
 
 
 def exercise_135_solution():
-    return print("Exercise body")
+    data = []
+    n = int(input("Enter a final number: "))
+    for i in range(0, n + 1):
+        data.append(i)
+        if i == 1:
+            data[i] = 0
+    p = 2
+    while p * p <= n:
+        if data[p] != 0:
+            for i in range(p * p, n + 1, p):
+                data[i] = 0
+        p += 1
+    prime_list = []
+    for i in data:
+        if i != 0:
+            prime_list.append(i)
+    print(prime_list)
+    return print(f"There are {len(prime_list)} prime numbers")
