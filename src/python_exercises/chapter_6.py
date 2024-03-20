@@ -124,7 +124,22 @@ def menu():
 
 
 def exercise_136_solution():
-    return print("Exercise body")
+    dic1 = {"one": 7,
+            "two": 3,
+            "three": 7,
+            "four": 1,
+            "five": 7}
+    for i in dic1:
+        print(f'Key: {i} ---- > Value: {dic1[i]}')
+    return print(reverse_lookup(dic1, 7))
+
+
+def reverse_lookup(data, value):
+    keys = []
+    for k in data:
+        if data[k] == value:
+            keys.append(k)
+    return keys
 
 
 def exercise_137_solution():
