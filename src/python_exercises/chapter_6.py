@@ -1,4 +1,5 @@
 from exercises import EXERCISE
+from random import randrange
 import __main__
 
 """
@@ -143,7 +144,52 @@ def reverse_lookup(data, value):
 
 
 def exercise_137_solution():
-    return print("Exercise body")
+    dic1 = {}
+    for i in range(2, 13):
+        dic1[str(i)] = 0
+    print(dic1)
+    dic2 = {
+        "2": 2.78,
+        "3": 5.56,
+        "4": 8.33,
+        "5": 11.11,
+        "6": 13.89,
+        "7": 16.67,
+        "8": 13.89,
+        "9": 11.11,
+        "10": 8.33,
+        "11": 5.56,
+        "12": 2.78
+    }
+    for i in range(1000):
+        k = str(dice())
+        dic1[k] += 1
+    n = len(dic1)
+    print("Total    Simulated    Expected")
+    print("           Percent     Percent")
+    for i in dic1:
+        if int(i) < 10:
+            x = " " + i
+        else:
+            x = i
+        temp = dic1[i] / 10
+        if temp < 10:
+            y = " " + str(temp)
+        else:
+            y = str(temp)
+        if (dic2[i] < 10 and int(i) < 10 and temp < 10) or (dic2[i] < 10 and temp < 10):
+            z = " " + str(dic2[i])
+        else:
+            z = str(dic2[i])
+        print(f"{x}            {y}       {z}")
+    return 1
+
+
+def dice():
+    dice_1 = randrange(1, 7)
+    dice_2 = randrange(1, 7)
+    result = dice_1 + dice_2
+    return result
 
 
 def exercise_138_solution():
