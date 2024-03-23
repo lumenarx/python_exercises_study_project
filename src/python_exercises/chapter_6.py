@@ -1,5 +1,6 @@
 from exercises import EXERCISE
 from random import randrange
+from chapter_5 import check_punctuation
 import __main__
 
 """
@@ -193,11 +194,43 @@ def dice():
 
 
 def exercise_138_solution():
-    return print("Exercise body")
+    buttons = {1: ".,?!:",
+               2: "ABC",
+               3: "DEF",
+               4: "GHI",
+               5: "JKL",
+               6: "MNO",
+               7: "PQRS",
+               8: "TUV",
+               9: "WXYZ",
+               0: " "}
+    text = "Hello, world!"
+    print(text)
+    result = ""
+    for k in range(len(text)):
+        for i in buttons:
+            for j in range(len(buttons[i])):
+                if text[k].lower() == buttons[i][j].lower():
+                    result += str(i) * (j + 1)
+    return print(result)
 
 
 def exercise_139_solution():
-    return print("Exercise body")
+    morse = {'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.', 'G': '--.',
+             'H': '....', 'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..', 'M': '--', 'N': '-.',
+             'O': '---', 'P': '.--.', 'Q': '--.-', 'R': '.-.', 'S': '...', 'T': '-', 'U': '..-',
+             'V': '...-', 'W': '.--', 'X': '-..-', 'Y': '-.--', 'Z': '--..', '0': '-----',
+             '1': '.----', '2': '..---', '3': '...--', '4': '....-', '5': '.....', '6': '-....',
+             '7': '--...', '8': '---..', '9': '----.'}
+    text = "Hello, world!"
+    text_to_morse = ""
+    for i in text:
+        if i == " ":
+            text_to_morse += i
+        else:
+            if check_punctuation(i) is False:
+                text_to_morse += morse[i.upper()]
+    return print(f"'{text}' in Morse code: {text_to_morse}")
 
 
 def exercise_140_solution():
