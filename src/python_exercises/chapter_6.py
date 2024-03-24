@@ -234,7 +234,53 @@ def exercise_139_solution():
 
 
 def exercise_140_solution():
-    return print("Exercise body")
+    postal_code = ''
+    while postal_code == '' and len(postal_code) != 6 and check_template(postal_code) is False:
+        if postal_code == '':
+            postal_code = input('Enter a postal code (G4A1B3 or similar): ')
+            if check_template(postal_code) is False:
+                postal_code = ''
+    explain_postal_code(postal_code)
+    return 1
+
+
+def check_template(postal_code):
+    if postal_code == '':
+        return False
+    elif len(postal_code) != 6 and postal_code != '':
+        print('The postal code must be 6 characters long.')
+        return False
+    elif len(postal_code) == 6:
+        for i in postal_code:
+            if i.islower() is True:
+                print('The postal code is invalid.')
+                return False
+    if postal_code[0].isalpha() is False or postal_code[2].isalpha() is False or postal_code[4].isalpha() is False:
+        print(f'The postal code is invalid. 1st, 3rd and 5th characters must be letters.')
+        return False
+    if postal_code[1].isnumeric() is False or postal_code[3].isnumeric() is False or postal_code[
+        5].isnumeric() is False:
+        print(f'The postal code is invalid. 2nd, 4th and 6th characters must be numbers.')
+        return False
+    else:
+        return True
+
+
+def explain_postal_code(postal_code):
+    provinces = {'A': 'Newfoundland', 'B': 'Nova Scotia', 'C': 'Prince Edward Island', 'E': 'New Brunswick',
+                 'G': 'Quebec', 'H': 'Quebec', 'J': 'Quebec', 'K': 'Ontario', 'L': 'Ontario', 'M': 'Ontario',
+                 'N': 'Ontario', 'P': 'Ontario', 'R': 'Manitoba', 'S': 'Saskatchewan', 'T': 'Alberta',
+                 'V': 'British Columbia', 'X': 'Nunavut or Northwest Territories', 'Y': 'Yukon'}
+    result = ''
+    if provinces[postal_code[0].upper()]:
+        result += 'Province/Territory: ' + provinces[postal_code[0]] + '\n'
+    else:
+        return print(f'The postal code is invalid. There is no region with {postal_code[0]} code.')
+    if postal_code[1] == '0':
+        result += 'Area: rural'
+    else:
+        result += 'Area: urban'
+    return print(result)
 
 
 def exercise_141_solution():
