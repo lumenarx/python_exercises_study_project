@@ -284,7 +284,49 @@ def explain_postal_code(postal_code):
 
 
 def exercise_141_solution():
-    return print("Exercise body")
+    numbers = [7, 13, 19, 25, 78, 80, 91, 101, 123, 216, 888, 976]
+    print("SHOWCASE")
+    for n in numbers:
+        print(n, '-', write_out_number(n))
+    print("END OF SHOWCASE")
+    try:
+        number = int(input("Enter an integer: "))
+        print(number, '-', write_out_number(number))
+    except TypeError:
+        print("Incorrect input. Try again...")
+
+    return 1
+
+
+def write_out_number(number):
+    words = {1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six', 7: 'seven', 8: 'eight', 9: 'nine',
+             10: 'ten', 11: 'eleven', 12: 'twelve', 13: 'thirteen', 14: 'fourteen', 15: 'fifteen', 16: 'sixteen',
+             17: 'seventeen', 18: 'eighteen', 19: 'nineteen', 20: 'twenty', 30: 'thirty', 40: 'forty', 50: 'fifty',
+             60: 'sixty', 70: 'seventy', 80: 'eighty', 90: 'ninety', 100: 'one hundred', 200: 'two hundred',
+             300: 'three hundred', 400: 'four hundred', 500: 'five hundred', 600: 'six hundred', 700: 'seven hundred',
+             800: 'eight hundred', 900: 'nine hundred'}
+    n = len(str(number))
+    new_number = ''
+    decomposed = []
+    a = (number // 100) * 100
+    b = (number % 100) - ((number % 100) % 10)
+    c = (number % 100) % 10
+    if n > 1 and 10 < number % 100 < 20:
+        b += c
+        c = 0
+    if a != 0:
+        decomposed.append(a)
+    if b != 0:
+        decomposed.append(b)
+    if c != 0:
+        decomposed.append(c)
+    n = len(decomposed)
+    for i in range(n):
+        if i == 0 and number % 100 > 0 and number // 100 > 0:
+            new_number += words[decomposed[i]] + ' and '
+        else:
+            new_number += words[decomposed[i]] + ' '
+    return new_number
 
 
 def exercise_142_solution():
