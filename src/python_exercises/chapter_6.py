@@ -330,11 +330,56 @@ def write_out_number(number):
 
 
 def exercise_142_solution():
-    return print("Exercise body")
+    text = "Hello, world!"
+    unique_characters(text)
+    return 1
+
+
+def unique_characters(text):
+    characters = {'a': 0, 'b': 0, 'c': 0, 'd': 0, 'e': 0, 'f': 0, 'g': 0, 'h': 0, 'i': 0, 'j': 0, 'k': 0,
+                  'l': 0, 'm': 0, 'n': 0, 'o': 0, 'p': 0, 'q': 0, 'r': 0, 's': 0, 't': 0, 'u': 0, 'v': 0,
+                  'w': 0, 'x': 0, 'y': 0, 'z': 0, ',': 0, '.': 0, '!': 0, '?': 0, ':': 0, ';': 0, '@': 0,
+                  '#': 0, '$': 0, '%': 0, '*': 0, "'": 0, '"': 0, '0': 0, '1': 0, '2': 0, '3': 0, '4': 0,
+                  '5': 0, '6': 0, '7': 0, '8': 0, '9': 0, '-': 0, '+': 0, '=': 0, '_': 0, ' ': 0
+                  }
+    n = len(text)
+    unique = 0
+    for i in text:
+        characters[i.lower()] += 1
+    for i in characters:
+        if characters[i] > 0:
+            unique += 1
+    return print(f"'{text}' has {unique} unique characters")
 
 
 def exercise_143_solution():
-    return print("Exercise body")
+    word = ['live', 'fundamental']
+    anagram = ['evil', 'talnemdunfa']
+    n = len(word)
+    for i in range(n):
+        print(f'Word {i + 1}: {word[i]};\nAnagram {i + 1}: {anagram[i]};')
+        if anagrams(word[i], anagram[i]):
+            print(f'Answer: {anagram[i]} is an anagram.')
+        else:
+            print(f'Answer: {anagram[i]} is NOT an anagram.')
+    return 1
+
+
+def anagrams(text1, text2):
+    word1 = {'a': 0, 'b': 0, 'c': 0, 'd': 0, 'e': 0, 'f': 0, 'g': 0, 'h': 0, 'i': 0, 'j': 0, 'k': 0,
+             'l': 0, 'm': 0, 'n': 0, 'o': 0, 'p': 0, 'q': 0, 'r': 0, 's': 0, 't': 0, 'u': 0, 'v': 0,
+             'w': 0, 'x': 0, 'y': 0, 'z': 0}
+    word2 = {'a': 0, 'b': 0, 'c': 0, 'd': 0, 'e': 0, 'f': 0, 'g': 0, 'h': 0, 'i': 0, 'j': 0, 'k': 0,
+             'l': 0, 'm': 0, 'n': 0, 'o': 0, 'p': 0, 'q': 0, 'r': 0, 's': 0, 't': 0, 'u': 0, 'v': 0,
+             'w': 0, 'x': 0, 'y': 0, 'z': 0}
+    for i in text1:
+        word1[i.lower()] += 1
+    for j in text2:
+        word2[j.lower()] += 1
+    if word1 == word2:
+        return True
+    else:
+        return False
 
 
 def exercise_144_solution():
