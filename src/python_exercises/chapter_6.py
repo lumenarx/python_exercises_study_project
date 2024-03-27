@@ -383,7 +383,43 @@ def anagrams(text1, text2):
 
 
 def exercise_144_solution():
-    return print("Exercise body")
+    word = ['William Shakespeare', 'Software Developer']
+    anagram = ['I am a weakish speller', 'Project Manager']
+    n = len(word)
+    for i in range(n):
+        print(f'Word {i + 1}: {word[i]};\nAnagram {i + 1}: {anagram[i]};')
+        if anagrams_extended(word[i], anagram[i]):
+            print(f'Answer: {anagram[i]} is an anagram.\n')
+        else:
+            print(f'Answer: {anagram[i]} is NOT an anagram.\n')
+    return 1
+
+
+def remove_spaces(text):
+    new_text = ''
+    for i in range(len(text)):
+        if text[i] != " ":
+            new_text += text[i]
+    return new_text
+
+
+def anagrams_extended(text1, text2):
+    word1 = {'a': 0, 'b': 0, 'c': 0, 'd': 0, 'e': 0, 'f': 0, 'g': 0, 'h': 0, 'i': 0, 'j': 0, 'k': 0,
+             'l': 0, 'm': 0, 'n': 0, 'o': 0, 'p': 0, 'q': 0, 'r': 0, 's': 0, 't': 0, 'u': 0, 'v': 0,
+             'w': 0, 'x': 0, 'y': 0, 'z': 0}
+    word2 = {'a': 0, 'b': 0, 'c': 0, 'd': 0, 'e': 0, 'f': 0, 'g': 0, 'h': 0, 'i': 0, 'j': 0, 'k': 0,
+             'l': 0, 'm': 0, 'n': 0, 'o': 0, 'p': 0, 'q': 0, 'r': 0, 's': 0, 't': 0, 'u': 0, 'v': 0,
+             'w': 0, 'x': 0, 'y': 0, 'z': 0}
+    new_text1 = remove_spaces(text1)
+    new_text2 = remove_spaces(text2)
+    for i in new_text1:
+        word1[i.lower()] += 1
+    for j in new_text2:
+        word2[j.lower()] += 1
+    if word1 == word2:
+        return True
+    else:
+        return False
 
 
 def exercise_145_solution():
