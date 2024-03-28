@@ -454,7 +454,53 @@ def scrabble(word):
 
 
 def exercise_146_solution():
-    return print("Exercise body")
+    game = Bingo()
+    game.create_bingo_card()
+    game.show_card()
+    return 1
+
+
+class Bingo:
+    def __init__(self):
+        self.card = None
+
+    def create_bingo_card(self):
+        card = {'B': [], 'I': [], 'N': [], 'G': [], 'O': []}
+        for i in card:
+            for j in range(5):
+                if i == 'B':
+                    card[i].append(randrange(1, 16))
+                elif i == 'I':
+                    card[i].append(randrange(16, 31))
+                elif i == 'N':
+                    card[i].append(randrange(31, 46))
+                elif i == 'G':
+                    card[i].append(randrange(46, 61))
+                elif i == 'O':
+                    card[i].append(randrange(61, 76))
+        self.card = card
+        return 1
+
+    def show_card(self):
+        if self.card is not None:
+            rows = []
+            k = 1
+            for i in range(6):
+                rows.append('')
+            for i in self.card:
+                rows[0] +=i + '  '
+            for i in range(5):
+                line = ''
+                for j in self.card:
+                    if self.card[j][i] // 10 > 0:
+                        line += str(self.card[j][i]) + ' '
+                    else:
+                        line += str(self.card[j][i]) + '  '
+                rows[i + 1] += line
+            for i in range(6):
+                print(rows[i])
+        else:
+            return print('There is no card to show. Use Bingo.create_bingo_card to generate one.')
 
 
 def exercise_147_solution():
