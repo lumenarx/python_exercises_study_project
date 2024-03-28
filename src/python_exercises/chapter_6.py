@@ -423,7 +423,34 @@ def anagrams_extended(text1, text2):
 
 
 def exercise_145_solution():
-    return print("Exercise body")
+    words = ['extensive', 'pollution', 'park', 'greenhouse', 'customizable']
+    for i in words:
+        scrabble(i)
+    word = ""
+    while word == "":
+        try:
+            word = input("Enter a word to show its score: ")
+            scrabble(word)
+        except:
+            print("Incorrect input. Try again... ")
+            word = ""
+    return 1
+
+
+def scrabble(word):
+    points = {'a': 1, 'b': 3, 'c': 3, 'd': 2, 'e': 1, 'f': 4, 'g': 2, 'h': 4, 'i': 1, 'j': 8, 'k': 5,
+              'l': 1, 'm': 3, 'n': 1, 'o': 1, 'p': 3, 'q': 10, 'r': 1, 's': 1, 't': 1, 'u': 1, 'v': 4,
+              'w': 4, 'x': 8, 'y': 4, 'z': 10}
+    score_by_letter = {'a': 0, 'b': 0, 'c': 0, 'd': 0, 'e': 0, 'f': 0, 'g': 0, 'h': 0, 'i': 0, 'j': 0, 'k': 0,
+                       'l': 0, 'm': 0, 'n': 0, 'o': 0, 'p': 0, 'q': 0, 'r': 0, 's': 0, 't': 0, 'u': 0, 'v': 0,
+                       'w': 0, 'x': 0, 'y': 0, 'z': 0}
+    score = 0
+    for i in word:
+        score_by_letter[i.lower()] += points[i.lower()]
+    for i in score_by_letter:
+        if score_by_letter[i] > 0:
+            score += score_by_letter[i]
+    return print(f"The word '{word}' has a score of {score}")
 
 
 def exercise_146_solution():
