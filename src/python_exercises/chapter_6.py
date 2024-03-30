@@ -1,5 +1,6 @@
 from exercises import EXERCISE
 from random import randrange
+from time import sleep
 from chapter_5 import check_punctuation
 import __main__
 
@@ -502,9 +503,74 @@ class Bingo:
         else:
             return print('There is no card to show. Use Bingo.create_bingo_card to generate one.')
 
+    def play_card(self):
+        print('Playing the game...')
+        sleep(0.8)
+        for i in range(50):
+            ball = randrange(1, 76)
+            for j in self.card:
+                for k in range(5):
+                    if self.card[j][k] == ball:
+                        self.card[j][k] = 0
+        return 1
+
+    def check_card(self):
+        print('Checking if your card is winning...')
+        sleep(0.4)
+        if self.check_diagonal() is True \
+                or self.check_horizontal() is True \
+                or self.check_vertical() is True:
+            return print("BINGO!")
+        else:
+            return print("Maybe next time!")
+
+    def check_diagonal(self):
+        d1 = self.card['B'][0] + self.card['I'][1] + self.card['N'][2] + self.card['G'][3] + self.card['O'][4]
+        d2 = self.card['B'][4] + self.card['I'][3] + self.card['N'][2] + self.card['G'][1] + self.card['O'][0]
+        if d1 == 0 or d2 == 0:
+            return True
+        else:
+            return False
+
+    def check_horizontal(self):
+        strip = [None, None, None, None, None]
+        for i in self.card:
+            for j in range(5):
+                if i == 'B':
+                    strip[j] = self.card[i][j]
+                else:
+                    strip[j] += self.card[i][j]
+        for i in range(5):
+            if strip[i] == 0:
+                return True
+        return False
+
+    def check_vertical(self):
+        strip = [None, None, None, None, None]
+        for i in self.card:
+            result = 0
+            k = 0
+            for j in range(5):
+                result += self.card[i][j]
+            if result == 0:
+                strip[k] = result
+                k += 1
+            else:
+                k += 1
+        for i in range(5):
+            if strip[i] == 0:
+                return True
+        return False
+
 
 def exercise_147_solution():
-    return print("Exercise body")
+    game = Bingo()
+    game.create_bingo_card()
+    game.show_card()
+    game.play_card()
+    game.show_card()
+    game.check_card()
+    return 1
 
 
 def exercise_148_solution():
