@@ -2,6 +2,7 @@ from exercises import EXERCISE
 from random import randrange
 from time import sleep
 from chapter_5 import check_punctuation
+from chapter_5 import shuffle
 import __main__
 
 """
@@ -464,6 +465,7 @@ def exercise_146_solution():
 class Bingo:
     def __init__(self):
         self.card = None
+        self.calls = None
 
     def create_bingo_card(self):
         card = {'B': [], 'I': [], 'N': [], 'G': [], 'O': []}
@@ -483,13 +485,15 @@ class Bingo:
         return 1
 
     def show_card(self):
+        print('Printing your card...')
+        sleep(0.8)
         if self.card is not None:
             rows = []
             k = 1
             for i in range(6):
                 rows.append('')
             for i in self.card:
-                rows[0] +=i + '  '
+                rows[0] += i + '  '
             for i in range(5):
                 line = ''
                 for j in self.card:
@@ -504,25 +508,47 @@ class Bingo:
             return print('There is no card to show. Use Bingo.create_bingo_card to generate one.')
 
     def play_card(self):
-        print('Playing the game...')
-        sleep(0.8)
-        for i in range(50):
-            ball = randrange(1, 76)
-            for j in self.card:
-                for k in range(5):
-                    if self.card[j][k] == ball:
-                        self.card[j][k] = 0
+        call_list = []
+        for j in range(5):
+            for i in range(1, 76):
+                call = ''
+                if j == 0:
+                    call = 'B'
+                elif j == 1:
+                    call = 'I'
+                elif j == 2:
+                    call = 'N'
+                elif j == 3:
+                    call = 'G'
+                elif j == 4:
+                    call = 'O'
+                call += str(i)
+                call_list.append(call)
+        shuffle(call_list)
+        win = False
+        while win is False:
+            i = call_list[0][0]
+            n = None
+            if len(call_list[0]) == 2:
+                n = int(call_list[0][1])
+            elif len(call_list[0]) == 3:
+                n = int(call_list[0][1] + call_list[0][2])
+            for j in range(5):
+                if self.card[i][j] == n:
+                    self.card[i][j] = 0
+            call_list.pop(0)
+            if self.check_card() is True:
+                win = True
+        self.calls = 275 - len(call_list)
         return 1
 
     def check_card(self):
-        print('Checking if your card is winning...')
-        sleep(0.4)
         if self.check_diagonal() is True \
                 or self.check_horizontal() is True \
                 or self.check_vertical() is True:
-            return print("BINGO!")
+            return True
         else:
-            return print("Maybe next time!")
+            return False
 
     def check_diagonal(self):
         d1 = self.card['B'][0] + self.card['I'][1] + self.card['N'][2] + self.card['G'][3] + self.card['O'][4]
@@ -574,4 +600,23 @@ def exercise_147_solution():
 
 
 def exercise_148_solution():
-    return print("Exercise body")
+    print('Modelling 1000 games...')
+    min_calls = 0
+    max_calls = 0
+    calls = 0
+    for i in range(1000):
+        game = Bingo()
+        game.create_bingo_card()
+        game.play_card()
+        calls += game.calls
+        if i == 0:
+            min_calls = game.calls
+            max_calls = game.calls
+        if game.calls < min_calls:
+            max_calls = game.calls
+        if game.calls > max_calls:
+            max_calls = game.calls
+    avg_calls = calls // 1000
+    return print(f'Min calls to win a game: {min_calls}\n'
+                 f'Max calls to win a game: {max_calls}\n'
+                 f'Average calls to win a game: {avg_calls}')
