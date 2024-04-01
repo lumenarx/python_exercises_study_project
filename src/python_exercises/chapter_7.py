@@ -190,11 +190,46 @@ def menu():
 
 
 def exercise_149_solution():
-    return print("Exercise body")
+    filename = input("Enter the file location: ")
+    file_opened = False
+    while file_opened is False:
+        try:
+            file_object = open(filename, 'r')
+            file_opened = True
+            line = file_object.readline()
+            for i in range(10):
+                line = line.rstrip()
+                print(line)
+                line = file_object.readline()
+        except FileNotFoundError:
+            print(f"'{filename}' wasn't found. Please try again.")
+            filename = input("Enter the file name: ")
+    return 1
 
 
 def exercise_150_solution():
-    return print("Exercise body")
+    filename = input("Enter the file name: ")
+    file_opened = False
+    while file_opened is False:
+        try:
+            file_object = open(filename, 'r')
+            file_opened = True
+            tail = []
+            line = file_object.readline()
+            while line != '':
+                line = line.rstrip()
+                if len(tail) < 10:
+                    tail.append(line)
+                else:
+                    tail.pop(0)
+                    tail.append(line)
+                line = file_object.readline()
+            for i in range(10):
+                print(tail[i])
+        except FileNotFoundError:
+            print(f"'{filename}' wasn't found. Please try again.")
+            filename = input("Enter the file name: ")
+    return 1
 
 
 def exercise_151_solution():
