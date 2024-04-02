@@ -233,7 +233,29 @@ def exercise_150_solution():
 
 
 def exercise_151_solution():
-    return print("Exercise body")
+    location = input("Enter the name of the files as: [file 1] [file 2]: ")
+    files = location.split()
+    files_opened = False
+    while files_opened is False:
+        try:
+            file_1 = open(files[0], 'r')
+            file_2 = open(files[1], 'r')
+            files_opened = True
+            line = file_1.readline()
+            while line != '':
+                line = line.rstrip()
+                print(line)
+                line = file_1.readline()
+            line = file_2.readline()
+            while line != '':
+                line = line.rstrip()
+                print(line)
+                line = file_2.readline()
+        except FileNotFoundError:
+            print(f"Files weren't found. Please try again.")
+            location = input("Enter the name of the files as: [file 1] [file 2]: ")
+            files = location.split()
+    return 1
 
 
 def exercise_152_solution():
