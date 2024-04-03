@@ -259,7 +259,27 @@ def exercise_151_solution():
 
 
 def exercise_152_solution():
-    return print("Exercise body")
+    filename = input("Enter the file name: ")
+    file_opened = False
+    while file_opened is False:
+        try:
+            file_1 = open(filename, 'r')
+            file_opened = True
+            file_2 = open('E:/elements2.txt', 'w')
+            line = file_1.readline()
+            i = 1
+            while line != '':
+                line = line.rstrip()
+                new_line = f'{i} ' + line + '\n'
+                i += 1
+                file_2.write(new_line)
+                print(f'[OLD] {line}\n'
+                      f'[NEW] {new_line}')
+                line = file_1.readline()
+        except FileNotFoundError:
+            print(f"'{filename}' wasn't found. Please try again.")
+            filename = input("Enter the file name: ")
+    return 1
 
 
 def exercise_153_solution():
