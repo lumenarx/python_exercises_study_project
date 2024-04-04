@@ -283,7 +283,26 @@ def exercise_152_solution():
 
 
 def exercise_153_solution():
-    return print("Exercise body")
+    filename = input("Enter the file name: ")
+    file_opened = False
+    while file_opened is False:
+        try:
+            file_object = open(filename, 'r')
+            file_opened = True
+            line = file_object.readline()
+            n = 0
+            word = ''
+            while line != '':
+                line = line.rstrip()
+                if len(line) > n:
+                    n = len(line)
+                    word = line
+                line = file_object.readline()
+            print(n, word)
+        except FileNotFoundError:
+            print(f"'{filename}' wasn't found. Please try again.")
+            filename = input("Enter the file name: ")
+    return 1
 
 
 def exercise_154_solution():
