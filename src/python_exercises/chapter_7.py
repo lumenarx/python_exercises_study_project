@@ -306,7 +306,35 @@ def exercise_153_solution():
 
 
 def exercise_154_solution():
-    return print("Exercise body")
+    characters = {'A': 0, 'B': 0, 'C': 0, 'D': 0, 'E': 0, 'F': 0, 'G': 0, 'H': 0, 'I': 0, 'J': 0, 'K': 0,
+                  'L': 0, 'M': 0, 'N': 0, 'O': 0, 'P': 0, 'Q': 0, 'R': 0, 'S': 0, 'T': 0, 'U': 0, 'V': 0,
+                  'W': 0, 'X': 0, 'Y': 0, 'Z': 0}
+    filename = input("Enter the file name: ")
+    file_opened = False
+    while file_opened is False:
+        try:
+            file_object = open(filename, 'r')
+            file_opened = True
+            line = file_object.readline()
+            while line != '':
+                line = line.rstrip()
+                for i in range(len(line)):
+                    characters[line[i].upper()] += 1
+                line = file_object.readline()
+            k = 1
+            for i in characters:
+                if k % 3 == 0:
+                    print(f"'{i}': {characters[i]}", end=",\n")
+                    k = 1
+                elif i == 'Z':
+                    print(f"'{i}': {characters[i]}")
+                else:
+                    print(f"'{i}': {characters[i]}", end=", ")
+                    k += 1
+        except FileNotFoundError:
+            print(f"'{filename}' wasn't found. Please try again.")
+            filename = input("Enter the file name: ")
+    return 1
 
 
 def exercise_155_solution():
