@@ -1,4 +1,5 @@
 from exercises import EXERCISE
+from chapter_6 import reverse_lookup
 import __main__
 
 """
@@ -338,7 +339,51 @@ def exercise_154_solution():
 
 
 def exercise_155_solution():
-    return print("Exercise body")
+    data = ['John eats breakfast with Maria', 'John works as a real estate manager at John Forest',
+            'John has been married for 6 years',
+            'Maria works as a school teacher', 'Maria eats dinner with John', 'Maria walks with a dog',
+            'Maria can drive a school bus']
+    wordlist = open('E:/wordlist.txt', 'w')
+    for i in data:
+        line = i + '\n'
+        wordlist.write(line)
+    wordlist.close()
+    # filename = input("Enter the file name: ")
+    filename = 'E:/wordlist.txt'
+    file_opened = False
+    words = {}
+    while file_opened is False:
+        try:
+            file_object = open(filename, 'r')
+            file_opened = True
+            line = file_object.readline()
+            while line != '':
+                line = line.rstrip()
+                line = line.split()
+                print(line)
+                # REMOVE PUNCTUATION AND SPACES FROM THE LIST
+                for i in line:
+                    try:
+                        words[i] += 1
+                    except KeyError:
+                        words[i] = 1
+                line = file_object.readline()
+            frequency = 0
+            for i in words:
+                if int(words[i]) > frequency:
+                    frequency = int(words[i])
+            top_words = reverse_lookup(words, frequency)
+            print("The most frequent word(s): ", end='')
+            for i in range(len(top_words)):
+                if i == len(top_words) - 1:
+                    print(f"'{top_words[i]}'")
+                else:
+                    print(f"'{top_words[i]}'", end=', ')
+
+        except FileNotFoundError:
+            print(f"'{filename}' wasn't found. Please try again.")
+            filename = input("Enter the file name: ")
+    return 1
 
 
 def exercise_156_solution():
