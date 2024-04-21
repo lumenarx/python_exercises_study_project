@@ -307,9 +307,9 @@ def exercise_153_solution():
 
 
 def exercise_154_solution():
-    characters = {'A': 0, 'B': 0, 'C': 0, 'D': 0, 'E': 0, 'F': 0, 'G': 0, 'H': 0, 'I': 0, 'J': 0, 'K': 0,
-                  'L': 0, 'M': 0, 'N': 0, 'O': 0, 'P': 0, 'Q': 0, 'R': 0, 'S': 0, 'T': 0, 'U': 0, 'V': 0,
-                  'W': 0, 'X': 0, 'Y': 0, 'Z': 0}
+    characters = {'A': 0, 'B': 0, 'C': 0, 'D': 0, 'E': 0, 'F': 0, 'G': 0, 'H': 0, 'I': 0,
+                  'J': 0, 'K': 0, 'L': 0, 'M': 0, 'N': 0, 'O': 0, 'P': 0, 'Q': 0, 'R': 0,
+                  'S': 0, 'T': 0, 'U': 0, 'V': 0, 'W': 0, 'X': 0, 'Y': 0, 'Z': 0}
     filename = input("Enter the file name: ")
     file_opened = False
     while file_opened is False:
@@ -339,9 +339,12 @@ def exercise_154_solution():
 
 
 def exercise_155_solution():
-    data = ['John eats breakfast with Maria', 'John works as a real estate manager at John Forest',
+    data = ['John eats breakfast with Maria',
+            'John works as a real estate manager at John Forest',
             'John has been married for 6 years',
-            'Maria works as a school teacher', 'Maria eats dinner with John', 'Maria walks with a dog',
+            'Maria works as a school teacher',
+            'Maria eats dinner with John',
+            'Maria walks with a dog',
             'Maria can drive a school bus']
     wordlist = open('E:/wordlist.txt', 'w')
     for i in data:
@@ -387,7 +390,24 @@ def exercise_155_solution():
 
 
 def exercise_156_solution():
-    return print("Exercise body")
+    total = 0
+    n = -1
+    while n != " ":
+        try:
+            if total == 0:
+                n = input("Enter the first integer: ")
+                total += int(n)
+                if total == " ":
+                    break
+            else:
+                n = input(f"The current sum is: {total}."
+                          f"Enter the next integer or press 'SPACE + Enter' to finish: ")
+                if n == " ":
+                    break
+                total += int(n)
+        except TypeError and ValueError:
+            print("Incorrect input.")
+    return print(f"Total sum is {total}.")
 
 
 def exercise_157_solution():

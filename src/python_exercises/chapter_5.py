@@ -316,6 +316,7 @@ def exercise_114_solution():
 
 def exercise_115_solution():
     number = int(input("Enter an integer: "))
+    print(f"The count of proper divisors without the initial number: {len(proper_divisors(number))}")
     return print(proper_divisors(number))
 
 
